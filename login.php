@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/login.css">
     <title>Login</title>
 </head>
 <body>
@@ -13,10 +14,12 @@
             <form action="" method="post">
                 <div class="txt_field">
                     <input type="text" required>
+                    <span></span>
                     <label for="">Username</label>
                 </div>
                 <div class="txt_field">
-                    <input type="text" required>
+                    <input type="password" required>
+                    <span></span>
                     <label for="">Password</label>
                 </div>
                 <div class="pass">Forgot Password?</div>

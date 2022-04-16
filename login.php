@@ -10,7 +10,7 @@
 <body>
     <main>
         <div class="center">
-            <h1>Log in</h1>
+            <h1>Login</h1>
             <form action="" method="post">
                 <div class="txt_field">
                     <input type="text" required>

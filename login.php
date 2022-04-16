@@ -13,19 +13,19 @@
             <h1>Login</h1>
             <form action="" method="post">
                 <div class="txt_field">
-                    <input type="text" required>
+                    <input type="text">
                     <span></span>
                     <label for="">Username</label>
                 </div>
                 <div class="txt_field">
-                    <input type="password" required>
+                    <input type="password">
                     <span></span>
                     <label for="">Password</label>
                 </div>
                 <div class="pass">Forgot Password?</div>
                 <input type="submit" value="Login">
                 <div class="signup_link">
-                    Not a member? <a href="#">Sign Up</a>
+                    Not a member? <a href="./signup.php">Sign Up</a>
                 </div>
             </form>
         </div>

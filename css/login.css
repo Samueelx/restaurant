@@ -1,3 +1,9 @@
+:root {
+    --error-color: #dc3545;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -53,6 +59,16 @@ body {
     font-size: 16px;
     pointer-events: none;
     transition: .5s;
+}
+
+.txt_field.error input {
+    border-color: var(--error-color);
+}
+.txt_field.success input {
+    border-color: var(--success-color);
+}
+.txt_field small {
+    color: var(--error-color);
 }
 
 .txt_field span::before {

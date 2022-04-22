@@ -1,20 +1,26 @@
+'use strict';
+
 const fnameElement = document.querySelector('#firstname');
 const lnameElement = document.querySelector('#lastname');
 const usernameElement = document.querySelector('#username');
 const phoneElement = document.querySelector('#phone');
 const passwordElement = document.querySelector('#password');
 const emailElement = document.querySelector('#email');
-//const streetElement = document.querySelector('#street');
-const townElement = document.queryElement('#town');
+const townElement = document.querySelector('#town');
 
 const signup = document.querySelector('#signup');
 
 signup.addEventListener('submit', (e) => {
     e.preventDefault(); /** Prevents the form from submitting. */
 
+    let isUsernameValid = checkUsername(), isEmailValid = checkEmail(), 
+    isPasswordValid = checkPassword();
+
+    let validForm = isUsernameValid && isEmailValid && isPasswordValid;
+
 });
 
-/** Returns true if the input argument is empty. */
+/** Returns false if the input argument is empty. */
 const isRequired = value => value === '' ? false : true;
 
 const isBetween = (length, min, max) => length < min || length > max ? false : true;
@@ -36,28 +42,23 @@ const passwordCheck = (password) => {
  * Highlights the border of the input field and displays an error message
  */
 const showError = (input, message) => {
-    const formField = input.parentElement;
-    formField.classList.remove('success');
-    formField.classList.add('error');
+    const textField = input.parentElement;
+    textField.classList.remove('success');
+    textField.classList.add('error');
 
-    const error = formField.querySelector('small');
+    const error = textField.querySelector('small');
     error.textContent = message;
-
-    /**
-     * We're probably going to change the binding 'formField' to 'textField' 
-     * since the div parent element is of class 'txt_field' on my html files.
-     */
 }
 
 /**
  * Shows the success indicator.
  */
 const showSuccess = (input) => {
-    const formField = input.parentElement;
-    formField.classList.remove('error');
-    formField.classList.add('success');
+    const textField = input.parentElement;
+    textField.classList.remove('error');
+    textField.classList.add('success');
 
-    const error = formField.querySelector('small')
+    const error = textField.querySelector('small')
     error.textContent = '';
 }
 
@@ -85,7 +86,6 @@ const checkUsername = () => {
 /**
  * Validate the email field.
  */
-
 const checkEmail = () => {
     let valid = false;
     const email = emailElement.value.trim();
@@ -106,3 +106,18 @@ const checkEmail = () => {
  * Validate password field.
  */
 
+const checkPassword = () => {
+    let valid = false;
+    const password = passwordElement.value.trim();
+
+    if(!isRequired(password)){
+        showError(passwordElement, 'Password cannot be blank.');
+    } else if(!passwordCheck(password)){
+        showError(passwordElement, 'Password must contain atleast 8 characters that include atleast 1 lowercase character, 1 uppercase character, 1 number and 1 special character.');
+    } else {
+        showSuccess(passwordElement);
+        valid = true;
+    }
+
+    return valid;
+}

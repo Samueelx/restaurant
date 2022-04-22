@@ -63,6 +63,36 @@ const showSuccess = (input) => {
 }
 
 /**
+ * Validate first name.
+ */
+const checkFname = () => {
+    let valid = false;
+    const firstName = fnameElement.value.trim();
+    if(!isRequired(firstName)){
+        showError(fnameElement, 'First name cannot be blank');
+    } else {
+        showSuccess(fnameElement);
+        valid = true;
+    }
+    return valid;
+}
+
+/**
+ * Validate last name
+ */
+const checkLname = () => {
+    let valid = false;
+    const lastName = lnameElement.value.trim();
+    if(!isRequired(lastName)){
+        showError(lnameElement, 'Last name cannot be blank.');
+    } else {
+        showSuccess(lnameElement);
+        valid = true;
+    }
+    return true;
+}
+
+/**
  * validate username field.
  */
 const checkUsername = () => {
@@ -91,11 +121,11 @@ const checkEmail = () => {
     const email = emailElement.value.trim();
 
     if(!isRequired(email)){
-        showError(emailElement, 'Username cannot be blank.');
+        showError(emailElement, 'Email cannot be blank.');
     } else if(!validEmail(email)){
         showError(emailElement, 'Email is not valid.');
     }else {
-        showSuccess(emailElement)
+        showSuccess(emailElement);
         valid = true;
     }
 
@@ -105,7 +135,6 @@ const checkEmail = () => {
 /**
  * Validate password field.
  */
-
 const checkPassword = () => {
     let valid = false;
     const password = passwordElement.value.trim();

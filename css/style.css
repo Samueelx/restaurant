@@ -1,0 +1,38 @@
+:root {
+    --dark-background: #03071e;
+}
+html {
+    scroll-behavior: smooth;
+    font-family: 'Courier New', Courier, monospace;
+}
+body {
+    text-align: center;
+}
+
+header {
+    background-color: var(--dark-background);
+    padding: 0.65rem;
+    color: aliceblue;
+    box-shadow: 2px 2px 4px #6A040F;
+    border-radius: 0.2rem;
+
+}
+#heading {
+    font-size: 2rem;
+    color: #DC2F02;
+}
+.navigation-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.nav-item {
+    float: right;
+    margin: 2rem;
+}
+.nav-item a {
+    display: block;
+    color: #DC2F02;
+    border: none;
+    text-decoration: none;
+}

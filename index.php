@@ -4,23 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Pimo</title>
 </head>
 <body>
     <header>
         <nav>
             <div id="heading">
-                <h2>Pimo Restaurant</h2>
+                <h2>Online Food Ordering</h2>
             </div>
-            <ul>
-                <li>
-                    <a href="#">Home</a>
+            <ul id="navigation-list" class="navigation-list">
+                <li class="nav-item">
+                    <a href="./index.php">Home</a>
                 </li>
-                <li>
-                    <a href="#">Login</a>
+                <li class="nav-item">
+                    <a href="./login.php">Login</a>
                 </li>
-                <li>
-                    <a href="#">Sign Up</a>
+                <li class="nav-item">
+                    <a href="./signup.php">Sign Up</a>
                 </li>
             </ul>
         </nav>

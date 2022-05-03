@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
 
     <link rel="shortcut icon" href="./resources/icons/codechef.svg" type="image/x-icon">
-    <title>Pimo</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>About</title>
 </head>
 
 <body>
@@ -34,31 +35,43 @@
                     <a href="./about.php">About</a>
                 </li>
             </ul>
-            <button class="order-btn">Order</button>
         </nav>
     </header>
-
     <main>
+
         <section>
-            <div class="home" id="home">
-                <h3>PLACE YOUR ORDER AND HAVE IT DELIVERED!!</h3>
+            <div class="options">
+                <div class="option">
+                    <h4>Order your food</h4>
+                    <p>
+                        Hello and welcome to your go to restaurant whenever you want the
+                        finest meals coupled with best services. Our state-of-the-art
+                        facilities and world class chefs are here to give you nothing but the best.
+                        Feel free to place your order!
+                    </p>
+                </div>
+                <div class="option">
+                    <h4>Delivery or Pick-up</h4>
+                    <p>
+                        We are flexible. Whenever you are at home or at your place of work, you
+                        can always place your order and have your meals delivered right where you are.
+                        You van also pick your meals right here at the restaurant.
+                    </p>
+                </div>
+            </div>
+
+            <div>
+                <h4>Visit Us</h4>
+                <p>
+                    Feel free to visit us and enjoy our meals and services.
+                </p>
             </div>
         </section>
 
-        <section>
-            
-        </section>
-
-        <section>
-
-        </section>
-
     </main>
-
     <footer>
 
     </footer>
-
 </body>
 
 </html>

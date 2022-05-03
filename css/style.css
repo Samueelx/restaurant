@@ -11,28 +11,35 @@ body {
 
 header {
     background-color: var(--dark-background);
-    padding: 0.65rem;
+    padding: 2rem;
     color: aliceblue;
     box-shadow: 2px 2px 4px #6A040F;
     border-radius: 0.2rem;
+    height: 20vh;
 
 }
 #heading {
+    font-family: 'Dancing Script', cursive;
+    float: left;
     font-size: 2rem;
     color: #DC2F02;
+    margin-right: 5rem;
 }
 .navigation-list {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
 }
 .nav-item {
-    float: right;
-    margin: 2rem;
+    float: left;
+    margin: 3rem;
 }
 .nav-item a {
-    display: block;
     color: #DC2F02;
     border: none;
+    border-radius: 0.3rem;
     text-decoration: none;
+}
+.nav-item a:hover {
+    color: aliceblue;
+    z-index: 3;
+    text-shadow: 3px 3px 3px #c7c1c1;
 }

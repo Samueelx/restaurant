@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="./css/style.css">
 
     <link rel="shortcut icon" href="./resources/icons/codechef.svg" type="image/x-icon">
@@ -45,8 +46,34 @@
             </div>
         </section>
 
-        <section>
-            
+        <section class="popular">
+            <div id="popular">
+                <div class="title">
+                    <h3>Popular Dishes</h3>
+                    <p>The easiest way to your favourite food</p>
+                </div>
+                <hr>
+                <div class="wrapper">
+                    <div class="box box1">
+                        <h4>Meal 1</h4>
+                    </div>
+                    <div class="box box2">
+                        <h4>Meal 2</h4>
+                    </div>
+                    <div class="box box3">
+                        <h4>Meal 3</h4>
+                    </div>
+                    <div class="box box4">
+                        <h4>Meal 4</h4>
+                    </div>
+                    <div class="box box5">
+                        <h4>Meal 5</h4>
+                    </div>
+                    <div class="box box6">
+                        <h4>Meal 6</h4>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section>

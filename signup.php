@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./resources/icons/codechef.svg" type="image/x-icon">
     <link rel="stylesheet" href="./css/login.css">
     <link rel="stylesheet" href="./css/signup.css">
     <script src="./javascript/validation.js" defer></script>
@@ -65,7 +66,7 @@
                     <small></small>
                 </div>
 
-                <input type="submit" value="Signup">
+                <input type="submit" value="Signup" id="signup">
             </form>
         </div>
     </main>

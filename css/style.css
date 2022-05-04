@@ -1,9 +1,13 @@
+* {
+    box-sizing: border-box;
+}
+
 :root {
     --dark-background: #03071e;
 }
 html {
     scroll-behavior: smooth;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 body {
     text-align: center;
@@ -40,6 +44,78 @@ header {
 }
 .nav-item a:hover {
     color: aliceblue;
+    transition: 0.5s;
     z-index: 3;
     text-shadow: 3px 3px 3px #c7c1c1;
+}
+.order-btn {
+    float: right;
+    margin: 3rem;
+    padding: 1rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    border: none;
+    border-radius: 1rem;
+    background-color: #DC2F02;
+    font-size: 1rem;
+    min-height: 30px;
+    max-height: 120px;
+}
+.order-btn:hover {
+    background-color: #FFBA08;
+    transition: 0.7s;
+}
+.order-btn:active {
+    cursor: pointer;
+}
+
+/**Home*/
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--dark-background);
+    background-image: url('../resources/images/pizza-rosemary.jpg');
+    background-size: 100%;
+    height: 75vh;
+    color: aliceblue;
+    font-weight: 900;
+    opacity: 0.9;
+}
+/**Options*/
+.options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-image: linear-gradient(180deg, #6A040F, #9D0208 );
+    color: aliceblue;
+}
+.option {
+    flex: 1 200px;
+    text-align: center;
+    line-break: strict;
+    max-width: 30rem;
+    margin: 7rem;
+}
+.option:hover {
+    cursor: pointer;
+}
+
+/**Popular*/
+.wrapper {
+    margin: 1rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    background-color: aliceblue;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(200px, auto);
+    gap: 10px;
+}
+
+.box {
+    border: 1px solid #F48C06;
+    border: 0.313rem;
 }

@@ -14,9 +14,11 @@ signup.addEventListener('submit', (e) => {
     e.preventDefault(); /** Prevents the form from submitting. */
 
     let isUsernameValid = checkUsername(), isEmailValid = checkEmail(), 
-    isPasswordValid = checkPassword();
+    isPasswordValid = checkPassword(), isFirstnameValid = checkFname(), 
+    isLastnameValid = checkLname();
 
-    let validForm = isUsernameValid && isEmailValid && isPasswordValid;
+    let validForm = isUsernameValid && isEmailValid && isPasswordValid && isFirstnameValid && 
+    isLastnameValid;
 
 });
 
@@ -89,7 +91,7 @@ const checkLname = () => {
         showSuccess(lnameElement);
         valid = true;
     }
-    return true;
+    return valid;
 }
 
 /**

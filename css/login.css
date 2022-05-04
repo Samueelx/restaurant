@@ -2,13 +2,14 @@
     --error-color: #dc3545;
     --success-color: #28a745;
     --warning-color: #ffc107;
+    --dark-background: #03071e;
 }
 
 body {
     margin: 0;
     padding: 0;
-    font-family: monospace;
-    background: linear-gradient(120deg, #2980b9, #8e44ad);
+    font-family: 'Courier New', Courier, monospace;
+    background: linear-gradient(120deg, #9D0208, #6A040F);
     height: 100vh;
     overflow: hidden;
 }

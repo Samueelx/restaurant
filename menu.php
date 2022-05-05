@@ -125,6 +125,84 @@
                 </div>
 
                 <h2 class="menu-group-heading">
+                    Breakfast & Snacks
+                </h2>
+                <div class="menu-group">
+                    <div class="menu-item">
+                        <img src="./resources/images/bread-and-coffee.jpg" alt="Bread and Coffee" class="menu-item-image">
+                        <div class="menu-item-text">
+                            <h3 class="menu-item-heading">
+                                <span class="menu-item-name">Bread and Coffee</span>
+                                <span class="menu-item-price">KES 300</span>
+                            </h3>
+                            <p class="menu-item-description">
+                            Having a nice cup of coffee with some artisan bread will make you feel happy, but it can also make your brain function more efficiently.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="./resources/images/pie.jpg" alt="Pie" class="menu-item-image">
+                        <div class="menu-item-text">
+                            <h3 class="menu-item-heading">
+                                <span class="menu-item-name">Pie</span>
+                                <span class="menu-item-price">KES 150</span>
+                            </h3>
+                            <p class="menu-item-description">
+                            These individual Meat Pies have a buttery crisp top and bottom crust with a delicious filling of ground pork and beef, along with lots of vegetables.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="./resources/images/pancakes.jpg" alt="Pancakes" class="menu-item-image">
+                        <div class="menu-item-text">
+                            <h3 class="menu-item-heading">
+                                <span class="menu-item-name">Pancakes</span>
+                                <span class="menu-item-price">KES 120</span>
+                            </h3>
+                            <p class="menu-item-description">
+                            These Pancakes are light and fluffy with a soft crust and spongy texture. 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="./resources/images/chapati.jpg" alt="Chapati" class="menu-item-image">
+                        <div class="menu-item-text">
+                            <h3 class="menu-item-heading">
+                                <span class="menu-item-name">Chapati</span>
+                                <span class="menu-item-price">KES 100</span>
+                            </h3>
+                            <p class="menu-item-description">
+                            Chapati is the quintessence of the Indian cuisine so much so that no meal is complete without this Indian flatbread.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="./resources/images/black-coffee.jpg" alt="Coffee" class="menu-item-image">
+                        <div class="menu-item-text">
+                            <h3 class="menu-item-heading">
+                                <span class="menu-item-name">Coffee</span>
+                                <span class="menu-item-price">KES 200</span>
+                            </h3>
+                            <p class="menu-item-description">
+                                Black coffee has plenty of health benefits and also aids in weight loss.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="./resources/images/icecream.jpg" alt="Ice cream" class="menu-item-image">
+                        <div class="menu-item-text">
+                            <h3 class="menu-item-heading">
+                                <span class="menu-item-name">Ice Cream</span>
+                                <span class="menu-item-price">KES 180</span>
+                            </h3>
+                            <p class="menu-item-description">
+                                Craving for something sweet? Why not order the most delectable pint of ice cream in town!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="menu-group-heading">
                     Drinks
                 </h2>
                 <div class="menu-group">
@@ -189,14 +267,14 @@
                         </div>
                     </div>
                     <div class="menu-item">
-                        <img src="./resources/images/icecream.jpg" alt="Ice cream" class="menu-item-image">
+                        <img src="./resources/images/strawberry-smoothy.jpg" alt="Strawberry Smoothie" class="menu-item-image">
                         <div class="menu-item-text">
                             <h3 class="menu-item-heading">
-                                <span class="menu-item-name">Ice Cream</span>
+                                <span class="menu-item-name">Strawberry Smoothie</span>
                                 <span class="menu-item-price">KES 180</span>
                             </h3>
                             <p class="menu-item-description">
-                                Craving for something sweet? Why not order the most delectable pint of ice cream in town!
+                            This Strawberry Smoothie is a thick, creamy and healthy fruit drink made with fresh or frozen strawberries, yogurt and milk.
                             </p>
                         </div>
                     </div>

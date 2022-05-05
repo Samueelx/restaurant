@@ -11,7 +11,7 @@ body {
     font-family: 'Courier New', Courier, monospace;
     background: linear-gradient(120deg, #9D0208, #6A040F);
     height: 100vh;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .center {

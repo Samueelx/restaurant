@@ -79,17 +79,22 @@ header {
     font-weight: 900;
     opacity: 0.9;
 }
-/**Options*/
+/**Options. This one works for the about page*/
+#options {
+    background-image: linear-gradient(180deg, #6A040F, #9D0208 ); 
+    margin: 0;
+    padding: 3px;
+    color: aliceblue;
+}
+
 .options {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    background-image: linear-gradient(180deg, #6A040F, #9D0208 );
-    color: aliceblue;
 }
 .option {
-    flex: 1 200px;
+    flex: 1;
     text-align: center;
     line-break: strict;
     max-width: 30rem;
@@ -99,19 +104,35 @@ header {
     cursor: pointer;
 }
 
-/**Popular*/
-.wrapper {
-    margin: 1rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
-    background-color: aliceblue;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: minmax(200px, auto);
-    gap: 10px;
-}
+/**Services class: In the index page*/
 
-.box {
-    border: 1px solid #F48C06;
-    border: 0.313rem;
+
+
+/*Footer. In the index, about and menu pages*/
+.footer {
+    margin-top: 0;
+    background-color: var(--dark-background);
+    height: 35vh;
+    color: aliceblue;
+    font-size: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+footer #heading{
+    margin-right: 1rem;
+    flex: 1;
+}
+.payment-options {
+    flex: 1;
+}
+.address {
+    flex: 1;
+}
+.socials {
+    flex: 1;
+}
+.socials i {
+    margin: 0.313rem;
 }

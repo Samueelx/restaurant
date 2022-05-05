@@ -1,0 +1,85 @@
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 1%;
+}
+.text-center {
+    text-align: center;
+}
+.text-white {
+    color: #370617;
+}
+.food-search {
+    background-image: url(../resources/images/order-bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 7% 0;
+}
+.food-menu-image {
+    width: 20%;
+    float: left;
+}
+.food-menu-description {
+    width: 70%;
+    float: left;
+    margin-left: 8%;
+}
+.food-price {
+    font-size: 1.2rem;
+    margin: 2% 0;
+}
+.food-detail {
+    font-size: 1rem;
+    
+}
+
+fieldset {
+    border: 1px solid aliceblue;
+    margin: 5%;
+    padding: 3%;
+    border-radius: 5px;
+}
+
+.order {
+    width: 50%;
+    margin: 0 auto;
+}
+.input-responsive {
+    width: 96%;
+    padding: 1%;
+    margin-bottom: 3%;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+.order-label {
+    margin-bottom: 1%;
+    font-weight: bold;
+}
+
+
+.menu-item-image {
+    height: 120px;
+    width: 120px;
+    flex-shrink: 0;
+    object-fit: cover;
+    margin-right: 1.5em;
+}
+
+#menu-button {
+    margin: 1rem;
+    padding: 1rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    border: none;
+    border-radius: 1rem;
+    background-color: #DC2F02;
+    font-size: 1rem;
+    min-height: 30px;
+    max-height: 120px;
+}
+#menu-button:hover {
+    background-color: #FFBA08;
+    transition: 0.7s;
+}

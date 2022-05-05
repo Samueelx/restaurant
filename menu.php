@@ -123,6 +123,84 @@
                         </div>
                     </div>
                 </div>
+
+                <h2 class="menu-group-heading">
+                    Drinks
+                </h2>
+                <div class="menu-group">
+                    <div class="menu-item">
+                        <img src="./resources/images/lemonade.jpg" alt="Lemonade" class="menu-item-image">
+                        <div class="menu-item-text">
+                            <h3 class="menu-item-heading">
+                                <span class="menu-item-name">Lemonade</span>
+                                <span class="menu-item-price">KES 200</span>
+                            </h3>
+                            <p class="menu-item-description">
+                                Classic sweet lemonade. Lemonade is a simple beverage characterized by its lemon flavor.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="./resources/images/Milkshake.jpg" alt="Milkshake" class="menu-item-image">
+                        <div class="menu-item-text">
+                            <h3 class="menu-item-heading">
+                                <span class="menu-item-name">Milkshake</span>
+                                <span class="menu-item-price">KES 200</span>
+                            </h3>
+                            <p class="menu-item-description">
+                                Whizz up a refreshing milkshake for a quick breakfast or treat. We've got indulgent chocolate, banana and strawberry flavours, plus fruity exercise shakes.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="./resources/images/Soda.jpg" alt="Soda" class="menu-item-image">
+                        <div class="menu-item-text">
+                            <h3 class="menu-item-heading">
+                                <span class="menu-item-name">Soda</span>
+                                <span class="menu-item-price">KES 150</span>
+                            </h3>
+                            <p class="menu-item-description">
+                                Enjoy a cold canned soda.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="./resources/images/mango-juice.jpg" alt="Mango Juice" class="menu-item-image">
+                        <div class="menu-item-text">
+                            <h3 class="menu-item-heading">
+                                <span class="menu-item-name">Mango Juice</span>
+                                <span class="menu-item-price">KES 200</span>
+                            </h3>
+                            <p class="menu-item-description">
+                                This mango juice is sweet, refreshing and has a full-on mango flavor.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="./resources/images/black-coffee.jpg" alt="Coffee" class="menu-item-image">
+                        <div class="menu-item-text">
+                            <h3 class="menu-item-heading">
+                                <span class="menu-item-name">Coffee</span>
+                                <span class="menu-item-price">KES 200</span>
+                            </h3>
+                            <p class="menu-item-description">
+                                Black coffee has plenty of health benefits and also aids in weight loss.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="./resources/images/icecream.jpg" alt="Ice cream" class="menu-item-image">
+                        <div class="menu-item-text">
+                            <h3 class="menu-item-heading">
+                                <span class="menu-item-name">Ice Cream</span>
+                                <span class="menu-item-price">KES 180</span>
+                            </h3>
+                            <p class="menu-item-description">
+                                Craving for something sweet? Why not order the most delectable pint of ice cream in town!
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>

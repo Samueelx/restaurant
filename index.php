@@ -32,6 +32,9 @@
                     <a href="./signup.php">Sign Up</a>
                 </li>
                 <li class="nav-item">
+                    <a href="./menu.php">Menu</a>
+                </li>
+                <li class="nav-item">
                     <a href="./about.php">About</a>
                 </li>
             </ul>

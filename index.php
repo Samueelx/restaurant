@@ -11,8 +11,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./resources/icons/font-awesome-4.7.0/css/font-awesome.min.css">
 
+    <script src="./javascript/jquery-3.6.0.js" crossorigin="anonymous" defer></script>
+    <script src="./javascript/script.js" defer></script>
+
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/menu.css">
+    <!-- <link rel="stylesheet" href="./css/menu.css"> -->
     <link rel="shortcut icon" href="./resources/icons/codechef.svg" type="image/x-icon">
     <title>Pimo</title>
 </head>
@@ -143,7 +146,7 @@
         <div class="socials">
             <h3>Visit our socials</h3>
         <a href="https://twitter.com"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
-        <a href="http://instagram.com"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+        <a href="https://instagram.com"><i class="fa fa-instagram" aria-hidden="true"></i></a>
         <a href="https://facebook.com"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
         </div>
     </footer>

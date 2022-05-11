@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./resources/icons/font-awesome-4.7.0/css/font-awesome.min.css">
 
     <link rel="shortcut icon" href="./resources/icons/codechef.svg" type="image/x-icon">
+    <script src="./javascript/menu.js" defer></script>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/menu.css">
     <title>Menu</title>
@@ -55,69 +56,69 @@
                     <hr>
                 </div>
                 <div class="food-items">
-                    <img src="./resources/images/peperoni-pizza.jpg" alt="pepperoni pizza">
+                    <img src="./resources/images/peperoni-pizza.jpg" alt="pepperoni pizza" class="item-image">
                     <div class="details">
                         <div class="details-sub">
                             <h5 class="title">Pepperoni Pizza</h5>
                             <h5 class="price">KES 1200</h5>
                         </div>
                         <p>Pepperoni is one of the most popular pizza toppings. This thinly sliced American salami is typically used for pizza, but sandwiches and wraps are also delicious when stuffed with this tasty cured meat.</p>
-                        <button>Add To Cart</button>
+                        <button class="add-to-cart">Add To Cart</button>
                     </div>
                 </div>
                 <div class="food-items">
-                    <img src="./resources/images/ramen.jpg" alt="Ramen">
+                    <img src="./resources/images/ramen.jpg" alt="Ramen" class="item-image">
                     <div class="details">
                         <div class="details-sub">
                             <h5 class="title">Ramen</h5>
                             <h5 class="price">KES 1200</h5>
                         </div>
                         <p>Ramen is a Japanese noodle soup, with a combination of a rich flavoured broth, one of a variety of types of noodle and a selection of meats or vegetables, often topped with a boiled egg.</p>
-                        <button>Add To Cart</button>
+                        <button class="add-to-cart">Add To Cart</button>
                     </div>
                 </div>
                 <div class="food-items">
-                    <img src="./resources/images/beef-steak.jpg" alt="Beef Steak">
+                    <img src="./resources/images/beef-steak.jpg" alt="Beef Steak" class="item-image">
                     <div class="details">
                         <div class="details-sub">
                             <h5 class="title">Beef Steak</h5>
                             <h5 class="price">KES 1200</h5>
                         </div>
                         <p>Enjoy these grilled beef steaks sprinkled with salt and pepper that’s ready in just 20 minutes – perfect for a dinner.</p>
-                        <button>Add To Cart</button>
+                        <button class="add-to-cart">Add To Cart</button>
                     </div>
                 </div>
                 <div class="food-items">
-                    <img src="./resources/images/rice-with-beef.jpg" alt="Rice with Beef">
+                    <img src="./resources/images/rice-with-beef.jpg" alt="Rice with Beef" class="item-image">
                     <div class="details">
                         <div class="details-sub">
                             <h5 class="title">Rice with Beef</h5>
                             <h5 class="price">KES 1200</h5>
                         </div>
                         <p>Beef fried rice is probably one of my favorite dishes on a standard Chinese takeout menu.</p>
-                        <button>Add To Cart</button>
+                        <button class="add-to-cart">Add To Cart</button>
                     </div>
                 </div>
                 <div class="food-items">
-                    <img src="./resources/images/grilled-pork.jpg" alt="Grilled Pork">
+                    <img src="./resources/images/grilled-pork.jpg" alt="Grilled Pork" class="item-image">
                     <div class="details">
                         <div class="details-sub">
                             <h5 class="title">Grilled Pork</h5>
                             <h5 class="price">KES 1200</h5>
                         </div>
                         <p>These quick and easy chops are marinated in a simple mixture of soy sauce, mustard, and brown sugar.</p>
-                        <button>Add To Cart</button>
+                        <button class="add-to-cart">Add To Cart</button>
                     </div>
                 </div>
                 <div class="food-items">
-                    <img src="./resources/images/sushi.jpg" alt="Sushi">
+                    <img src="./resources/images/sushi.jpg" alt="Sushi" class="item-image">
                     <div class="details">
                         <div class="details-sub">
                             <h5 class="title">Sushi</h5>
                             <h5 class="price">KES 1200</h5>
                         </div>
                         <p>Sushi, a staple rice dish of Japanese cuisine, consisting of cooked rice flavoured with vinegar and a variety of vegetable, egg, or raw seafood garnishes and served cold.</p>
-                        <button>Add To Cart</button>
+                        <button class="add-to-cart">Add To Cart</button>
                     </div>
                 </div>
 
@@ -126,74 +127,74 @@
                     <hr>
                 </div>
                 <div class="food-items">
-                    <img src="./resources/images/bread-and-coffee.jpg" alt="Bread and Coffee">
+                    <img src="./resources/images/bread-and-coffee.jpg" alt="Bread and Coffee" class="item-image">
                     <div class="details">
                         <div class="details-sub">
                             <h5 class="title">Bread and Coffee</h5>
                             <h5 class="price">KES 300</h5>
                         </div>
                         <p>Having a nice cup of coffee with some artisan bread will make you feel happy, but it can also make your brain function more efficiently.</p>
-                        <button>Add To Cart</button>
+                        <button class="add-to-cart">Add To Cart</button>
                     </div>
                 </div>
 
                 <div class="food-items">
-                    <img src="./resources/images/pie.jpg" alt="Meat Pie">
+                    <img src="./resources/images/pie.jpg" alt="Meat Pie" class="item-image">
                     <div class="details">
                         <div class="details-sub">
                             <h5 class="title">Meat Pie</h5>
                             <h5 class="price">KES 150</h5>
                         </div>
                         <p>These individual Meat Pies have a buttery crisp top and bottom crust with a delicious filling of ground pork and beef, along with lots of vegetables.</p>
-                        <button>Add To Cart</button>
+                        <button class="add-to-cart">Add To Cart</button>
                     </div>
                 </div>
 
                 <div class="food-items">
-                    <img src="./resources/images/pancakes.jpg" alt="Pancakes">
+                    <img src="./resources/images/pancakes.jpg" alt="Pancakes" class="item-image">
                     <div class="details">
                         <div class="details-sub">
                             <h5 class="title">Pancakes</h5>
                             <h5 class="price">KES 120</h5>
                         </div>
                         <p>These Pancakes are light and fluffy with a soft crust and spongy texture.</p>
-                        <button>Add To Cart</button>
+                        <button class="add-to-cart">Add To Cart</button>
                     </div>
                 </div>
 
                 <div class="food-items">
-                    <img src="./resources/images/chapati.jpg" alt="Chapati">
+                    <img src="./resources/images/chapati.jpg" alt="Chapati" class="item-image">
                     <div class="details">
                         <div class="details-sub">
                             <h5 class="title">Chapati</h5>
                             <h5 class="price">KES 100</h5>
                         </div>
                         <p>Chapati is the quintessence of the Indian cuisine so much so that no meal is complete without this Indian flatbread.</p>
-                        <button>Add To Cart</button>
+                        <button class="add-to-cart">Add To Cart</button>
                     </div>
                 </div>
 
                 <div class="food-items">
-                    <img src="./resources/images/icecream.jpg" alt="Ice cream">
+                    <img src="./resources/images/icecream.jpg" alt="Ice cream" class="item-image">
                     <div class="details">
                         <div class="details-sub">
                             <h5 class="title">Ice Cream</h5>
                             <h5 class="price">KES 180</h5>
                         </div>
                         <p>Craving for something sweet? Why not order the most delectable pint of ice cream in town!</p>
-                        <button>Add To Cart</button>
+                        <button class="add-to-cart">Add To Cart</button>
                     </div>
                 </div>
 
                 <div class="food-items">
-                    <img src="./resources/images/black-coffee.jpg" alt="Coffee">
+                    <img src="./resources/images/black-coffee.jpg" alt="Coffee" class="item-image">
                     <div class="details">
                         <div class="details-sub">
                             <h5 class="title">Coffee</h5>
                             <h5 class="price">KES 120</h5>
                         </div>
                         <p>Black coffee has plenty of health benefits and also aids in weight loss.</p>
-                        <button>Add To Cart</button>
+                        <button class="add-to-cart">Add To Cart</button>
                     </div>
                 </div>
 
@@ -203,74 +204,74 @@
                 </div>
 
                 <div class="food-items">
-                    <img src="./resources/images/lemonade.jpg" alt="Lemonade">
+                    <img src="./resources/images/lemonade.jpg" alt="Lemonade" class="item-image">
                     <div class="details">
                         <div class="details-sub">
                             <h5 class="title">Lemonade</h5>
                             <h5 class="price">KES 200</h5>
                         </div>
                         <p>Classic sweet lemonade. Lemonade is a simple beverage characterized by its lemon flavor.</p>
-                        <button>Add To Cart</button>
+                        <button class="add-to-cart">Add To Cart</button>
                     </div>
                 </div>
 
                 <div class="food-items">
-                    <img src="./resources/images/Milkshake.jpg" alt="Milkshake">
+                    <img src="./resources/images/Milkshake.jpg" alt="Milkshake" class="item-image">
                     <div class="details">
                         <div class="details-sub">
                             <h5 class="title">MilkShake</h5>
                             <h5 class="price">KES 200</h5>
                         </div>
                         <p>Whizz up a refreshing milkshake for a quick breakfast or treat. We've got indulgent chocolate, banana and strawberry flavours, plus fruity exercise shakes.</p>
-                        <button>Add To Cart</button>
+                        <button class="add-to-cart">Add To Cart</button>
                     </div>
                 </div>
 
                 <div class="food-items">
-                    <img src="./resources/images/Soda.jpg" alt="Soda">
+                    <img src="./resources/images/Soda.jpg" alt="Soda" class="item-image">
                     <div class="details">
                         <div class="details-sub">
                             <h5 class="title">Soda</h5>
                             <h5 class="price">KES 150</h5>
                         </div>
                         <p>Enjoy a cold canned soda.</p>
-                        <button>Add To Cart</button>
+                        <button class="add-to-cart">Add To Cart</button>
                     </div>
                 </div>
 
                 <div class="food-items">
-                    <img src="./resources/images/mango-juice.jpg" alt="Mango Juice">
+                    <img src="./resources/images/mango-juice.jpg" alt="Mango Juice" class="item-image">
                     <div class="details">
                         <div class="details-sub">
                             <h5 class="title">Mango Juice</h5>
                             <h5 class="price">KES 200</h5>
                         </div>
                         <p>This mango juice is sweet, refreshing and has a full-on mango flavor.</p>
-                        <button>Add To Cart</button>
+                        <button class="add-to-cart">Add To Cart</button>
                     </div>
                 </div>
 
                 <div class="food-items">
-                    <img src="./resources/images/strawberry-smoothy.jpg" alt="Strawberry Smoothie">
+                    <img src="./resources/images/strawberry-smoothy.jpg" alt="Strawberry Smoothie" class="item-image">
                     <div class="details">
                         <div class="details-sub">
                             <h5 class="title">Strawberry Smoothie</h5>
                             <h5 class="price">KES 180</h5>
                         </div>
                         <p>This Strawberry Smoothie is a thick, creamy and healthy fruit drink made with fresh or frozen strawberries, yogurt and milk.</p>
-                        <button>Add To Cart</button>
+                        <button class="add-to-cart">Add To Cart</button>
                     </div>
                 </div>
 
                 <div class="food-items">
-                    <img src="./resources/images/black-coffee.jpg" alt="Coffee">
+                    <img src="./resources/images/black-coffee.jpg" alt="Coffee" class="item-image">
                     <div class="details">
                         <div class="details-sub">
                             <h5 class="title">Coffee</h5>
                             <h5 class="price">KES 120</h5>
                         </div>
                         <p>Black coffee has plenty of health benefits and also aids in weight loss.</p>
-                        <button>Add To Cart</button>
+                        <button class="add-to-cart">Add To Cart</button>
                     </div>
                 </div>
             </div>
@@ -284,34 +285,12 @@
                 <span class="cart-quantity cart-header cart-column">QUANTITY</span>
             </div>
             <div class="cart-items">
-                <div class="cart-row">
-                    <div class="cart-item cart-column">
-                        <img src="./resources/images/strawberry-smoothy.jpg" alt="Strawberry smoothie" class="cart-item-image" width="100" height="100">
-                        <span class="cart-item-title">Strawberry Smoothie</span>
-                    </div>
-                    <span class="cart-price cart-column">KES 180</span>
-                    <div class="cart-quantity cart-column">
-                        <input type="number" name="quantity" id="" value="1">
-                        <button class="btn btn-danger">REMOVE</button>
-                    </div>
-                </div>
-
-                <div class="cart-row">
-                    <div class="cart-item cart-column">
-                        <img class="cart-item-image" src="./resources/images/icecream.jpg" alt="Ice Cream" width="100" height="100">
-                        <span class="cart-item-title">Ice Cream</span>
-                    </div>
-                    <span class="cart-price cart-column">KES 180</span>
-                    <div class="cart-quantity cart-column">
-                        <input class="cart-quantity-input" type="number" value="2">
-                        <button class="btn btn-danger" type="button">REMOVE</button>
-                    </div>
-                </div>
+                
             </div>
 
             <div class="cart-total">
                 <strong class="cart-total-title">Total</strong>
-                <span class="cart-total-price">KES 180</span>
+                <span class="cart-total-price">KES 0</span>
             </div>
             <button class="btn btn-primary btn-purchase">PURCHASE</button>
         </section>

@@ -13,35 +13,42 @@ include('./partials/menu.php');
                 <tr>
                     <td>Username:</td>
                     <td>
-                        <input type="text" name="username" placeholder="Enter Username">
+                        <input type="text" name="username" placeholder="Enter Username" id="username">
                     </td>
                 </tr>
 
                 <tr>
                     <td>First Name:</td>
                     <td>
-                        <input type="text" name="first-name" id="" placeholder="Enter First Name">
+                        <input type="text" name="firstname" id="firstname" placeholder="Enter First Name">
                     </td>
                 </tr>
 
                 <tr>
                     <td>Last Name:</td>
                     <td>
-                        <input type="text" name="last-name" id="" placeholder="Enter Last Name">
+                        <input type="text" name="lastname" id="lastname" placeholder="Enter Last Name">
                     </td>
                 </tr>
 
                 <tr>
                     <td>Email: </td>
                     <td>
-                        <input type="text" name="email" id="" placeholder="Enter Email">
+                        <input type="text" name="email" id="email" placeholder="Enter Email">
                     </td>
                 </tr>
 
                 <tr>
                     <td>Password: </td>
                     <td>
-                        <input type="password" name="password" id="" placeholder="Enter Password">
+                        <input type="password" name="password" id="password" placeholder="Enter Password">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Phone: </td>
+                    <td>
+                        <input type="text" name="phone" id="phone" placeholder="Enter Email">
                     </td>
                 </tr>
 
@@ -81,4 +88,27 @@ include('./partials/footer.php');
 <?php
 /**Process the data from form and save it in database */
 
+/**Check whether the button is clicked or not. */
+if (isset($_POST['submit'])) {
+    //Get data from form:
+    $username = $_POST['username'];
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $email = $_POST['email'];
+    $password = sha1($_POST['password']);
+    $phone = $_POST['phone'];
+    $admin = $_POST['admin'];
+
+    //query to save data to our database
+    $sql = "INSERT INTO user (username, first_name, last_name, email, passwordHash, phone, isAdmin) 
+    values ($username, $firstname, $lastname, $email, $password, $phone, $admin);";
+
+    $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+
+    if($res = true){
+        print "Query Successful";
+    } else {
+        print "Query Failed";
+    }
+}
 ?>

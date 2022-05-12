@@ -1,0 +1,90 @@
+:root {
+    --dark-background: #03071e;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.wrapper {
+    padding: 1%;
+    width: 80%;
+    margin: 0 auto;
+}
+.text-center {
+    text-align: center;
+}
+.clearfix {
+    float: none;
+    clear: both;
+}
+/*CSS for Menu*/
+.menu {
+    text-align: center;
+    border-bottom: 1px solid #03071E;
+}
+.menu ul {
+    list-style-type: none;
+}
+.menu ul li {
+    display: inline;
+    padding: 1%;
+}
+.menu ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #DC2F02;
+
+}
+.menu ul li a:hover {
+    color: aliceblue;
+}
+
+/*CSS for Main Content*/
+.main-content {
+    background-color: aliceblue;
+    padding: 3% 0;
+}
+.col-4 {
+    width: 18%;
+    background-color: white;
+    margin: 1%;
+    padding: 2%;
+    text-align: center;
+    float: left;
+}
+
+
+
+/*Footer Section*/
+.footer {
+    margin-top: 0;
+    background-color: var(--dark-background);
+    height: 35vh;
+    color: aliceblue;
+    font-size: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+footer #heading{
+    margin-right: 1rem;
+    flex: 1;
+    font-family: 'Dancing Script', cursive;
+    color: #DC2F02;
+}
+.payment-options {
+    flex: 1;
+}
+.address {
+    flex: 1;
+}
+.socials {
+    flex: 1;
+}
+.socials i {
+    margin: 0.313rem;
+}

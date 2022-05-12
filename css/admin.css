@@ -20,6 +20,74 @@
     float: none;
     clear: both;
 }
+
+.tbl-full {
+    width: 100%;
+}
+table tr th {
+    border-bottom: 1px solid black;
+    padding: 1%;
+    text-align: left;
+}
+table tr td {
+    padding: 1%;
+}
+
+.tbl-30 {
+    width: 30%;
+}
+
+.btn-primary {
+    background-color: #560BAD;
+    padding: 1%;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+.btn-primary:hover {
+    background-color: #3A0CA3;
+}
+.btn-secondary {
+    background-color: #2B9348;
+    padding: 1%;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+.btn-secondary:hover {
+    background-color: #55A630;
+}
+
+.btn-danger {
+    background-color: #9D0208;
+    padding: 1%;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+.btn-danger:hover {
+    background-color: #6A040F;
+}
+form {
+    font-size: 18px;
+}
+input[type = text], input[type = password] {
+    width: 100%;
+    padding: 6px 6px;
+    margin: 4px 0;
+    border: none;
+    border-bottom: 1px solid #2B9348;
+}
+
+input[type = submit]{
+    border: none;
+    padding: 15px 30px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
 /*CSS for Menu*/
 .menu {
     text-align: center;

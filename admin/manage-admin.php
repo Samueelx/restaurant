@@ -8,14 +8,16 @@ include('./partials/menu.php');
         <h1>Manage Admin</h1>
         <br /> <br />
 
-        <?php
-        /**Upon successful addition of a user: */
-        if (isset($_SESSION['add'])) {
-            echo $_SESSION['add'];
-            unset($_SESSION['add']);
-        }
+        <div class="response">
+            <?php
+            /**Upon successful addition of a user: */
+            if (isset($_SESSION['add'])) {
+                echo $_SESSION['add'];
+                unset($_SESSION['add']);
+            }
 
-        ?>
+            ?>
+        </div>
 
         <br />
 
@@ -28,6 +30,7 @@ include('./partials/menu.php');
                 <th>Username</th>
                 <th>First Name</th>
                 <th>Last Name</th>
+                <th>Email</th>
                 <th>Actions</th>
             </tr>
 
@@ -43,6 +46,7 @@ include('./partials/menu.php');
                         $username = $rows['username'];
                         $firstname = $rows['first_name'];
                         $lastname = $rows['last_name'];
+                        $email = $rows['email'];
 
                         /**Display the values: */
             ?>
@@ -51,6 +55,7 @@ include('./partials/menu.php');
                             <td><?php echo $username; ?></td>
                             <td><?php echo $firstname; ?></td>
                             <td><?php echo $lastname; ?></td>
+                            <td> <?php echo $email;?> </td>
                             <td>
                                 <a href="#" class="btn-secondary">Update Admin</a>
                                 <a href="#" class="btn-danger">Delete Admin</a>
@@ -63,7 +68,7 @@ include('./partials/menu.php');
                 }
             }
             ?>
-<!--
+            <!--
             <tr>
                 <td>fancynancy</td>
                 <td>Fancy</td>

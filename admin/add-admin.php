@@ -9,7 +9,7 @@ include('./partials/menu.php');
         <br><br>
 
         <?php
-        /**I don't think this will work because of the die() function in line 113*/
+        /**I don't think this will work because of the die() function in line  113*/
             if(isset($_SESSION['add'])){
                 echo $_SESSION['add'];
                 unset($_SESSION['add']);

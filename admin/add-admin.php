@@ -8,6 +8,14 @@ include('./partials/menu.php');
 
         <br><br>
 
+        <?php
+        /**I don't think this will work because of the die() function in line 113*/
+            if(isset($_SESSION['add'])){
+                echo $_SESSION['add'];
+                unset($_SESSION['add']);
+            }
+        ?>
+
         <form action="" method="POST">
             <table class="tbl-30">
                 <tr>
@@ -101,14 +109,19 @@ if (isset($_POST['submit'])) {
 
     //query to save data to our database
     $sql = "INSERT INTO user (username, first_name, last_name, email, passwordHash, phone, isAdmin) 
-    values ($username, $firstname, $lastname, $email, $password, $phone, $admin);";
-
-    $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
-
-    if($res = true){
-        print "Query Successful";
+    values ('$username', '$firstname', '$lastname', '$email', '$password', '$phone', '$admin');";
+    $res = mysqli_query($conn, $sql) ? true : die(mysqli_error($conn));
+    
+    /**
+     * For some reason, the below code isn't working => 1:17:00.
+     * It's working now, after adding ob_start() in my constants.php
+     */
+    if($res == true){
+        $_SESSION['add'] = "Admin added successfully";
+        header("location:".HOMEURL.'admin/manage-admin.php');
     } else {
-        print "Query Failed";
+        $_SESSION['add'] = "Query to add user failed";
+        header("location:".HOMEURL.'admin/add-admin.php');
     }
 }
 ?>

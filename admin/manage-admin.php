@@ -8,6 +8,17 @@ include('./partials/menu.php');
         <h1>Manage Admin</h1>
         <br /> <br />
 
+        <?php
+        /**Upon successful addition of a user: */
+        if (isset($_SESSION['add'])) {
+            echo $_SESSION['add'];
+            unset($_SESSION['add']);
+        }
+
+        ?>
+
+        <br />
+
         <!--Button to add admin-->
         <a href="./add-admin.php" class="btn-primary">Add Admin</a>
 
@@ -20,6 +31,39 @@ include('./partials/menu.php');
                 <th>Actions</th>
             </tr>
 
+            <?php
+            $query = "SELECT * FROM user;";
+
+            $res = mysqli_query($conn, $query);
+            if ($res == true) {
+                $count = mysqli_num_rows($res);
+                if ($count > 0) {
+                    while ($rows = mysqli_fetch_assoc($res)) {
+                        /**Get individual data: */
+                        $username = $rows['username'];
+                        $firstname = $rows['first_name'];
+                        $lastname = $rows['last_name'];
+
+                        /**Display the values: */
+            ?>
+
+                        <tr>
+                            <td><?php echo $username; ?></td>
+                            <td><?php echo $firstname; ?></td>
+                            <td><?php echo $lastname; ?></td>
+                            <td>
+                                <a href="#" class="btn-secondary">Update Admin</a>
+                                <a href="#" class="btn-danger">Delete Admin</a>
+                            </td>
+                        </tr>
+
+            <?php
+                    }
+                } else {
+                }
+            }
+            ?>
+<!--
             <tr>
                 <td>fancynancy</td>
                 <td>Fancy</td>
@@ -49,6 +93,7 @@ include('./partials/menu.php');
                     <a href="#" class="btn-danger">Delete Admin</a>
                 </td>
             </tr>
+        -->
         </table>
 
     </div>

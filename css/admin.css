@@ -68,6 +68,14 @@ table tr td {
 .btn-danger:hover {
     background-color: #6A040F;
 }
+
+.success {
+    color: #2B9348;
+}
+.error {
+    color: #D00000;
+}
+
 form {
     font-size: 18px;
 }

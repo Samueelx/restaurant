@@ -114,13 +114,13 @@ if (isset($_POST['submit'])) {
     
     /**
      * For some reason, the below code isn't working => 1:17:00.
-     * It's working now, after adding ob_start() in my constants.php
+     * It's working now, after adding ob_start() in my constants.php file
      */
     if($res == true){
-        $_SESSION['add'] = "Admin added successfully";
+        $_SESSION['add'] = "<div class = 'success'>User added successfully </div>";
         header("location:".HOMEURL.'admin/manage-admin.php');
     } else {
-        $_SESSION['add'] = "Query to add user failed";
+        $_SESSION['add'] = "<div class = 'error'> Query to add user failed. </div>";
         header("location:".HOMEURL.'admin/add-admin.php');
     }
 }

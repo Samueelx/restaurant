@@ -5,7 +5,7 @@ include('./partials/menu.php');
 <!--Main Content starts Here-->
 <div class="main-content">
     <div class="wrapper">
-        <h1>Manage Admin</h1>
+        <h1>Manage User</h1>
         <br /> <br />
 
         <div class="response">
@@ -16,13 +16,18 @@ include('./partials/menu.php');
                 unset($_SESSION['add']);
             }
 
+            if (isset($_SESSION['delete'])){
+                echo $_SESSION['delete'];
+                unset($_SESSION['delete']);
+            }
+
             ?>
         </div>
 
         <br />
 
         <!--Button to add admin-->
-        <a href="./add-admin.php" class="btn-primary">Add Admin</a>
+        <a href="./add-admin.php" class="btn-primary">Add User</a>
 
         <br /> <br /> <br />
         <table class="tbl-full">
@@ -43,6 +48,7 @@ include('./partials/menu.php');
                 if ($count > 0) {
                     while ($rows = mysqli_fetch_assoc($res)) {
                         /**Get individual data: */
+                        $id = $rows['user_id'];
                         $username = $rows['username'];
                         $firstname = $rows['first_name'];
                         $lastname = $rows['last_name'];
@@ -58,7 +64,7 @@ include('./partials/menu.php');
                             <td> <?php echo $email;?> </td>
                             <td>
                                 <a href="#" class="btn-secondary">Update Admin</a>
-                                <a href="#" class="btn-danger">Delete Admin</a>
+                                <a href="<?php echo HOMEURL; ?>admin/delete-user.php?id=<?php echo $id; ?>" class="btn-danger">Delete Admin</a>
                             </td>
                         </tr>
 

@@ -21,6 +21,11 @@ include('./partials/menu.php');
                 unset($_SESSION['delete']);
             }
 
+            if (isset($_SESSION['update'])){
+                echo $_SESSION['update'];
+                unset ($_SESSION['update']);
+            }
+
             ?>
         </div>
 
@@ -63,7 +68,7 @@ include('./partials/menu.php');
                             <td><?php echo $lastname; ?></td>
                             <td> <?php echo $email;?> </td>
                             <td>
-                                <a href="#" class="btn-secondary">Update Admin</a>
+                                <a href="<?php echo HOMEURL; ?>admin/update-user.php?id=<?php echo $id; ?>" class="btn-secondary">Update Admin</a>
                                 <a href="<?php echo HOMEURL; ?>admin/delete-user.php?id=<?php echo $id; ?>" class="btn-danger">Delete Admin</a>
                             </td>
                         </tr>

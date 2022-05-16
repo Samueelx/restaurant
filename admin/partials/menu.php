@@ -1,5 +1,6 @@
 <?php
 include('../config/constants.php');
+include('./partials/login-check.php');
 ?>
 
 <!DOCTYPE html>

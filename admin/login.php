@@ -13,6 +13,11 @@ include('./partials/login-imports.php');
                     echo $_SESSION['login'];
                     unset($_SESSION['login']);
                 }
+
+                if(isset($_SESSION['no-login-message'])){
+                    echo $_SESSION['no-login-message'];
+                    unset($_SESSION['no-login-message']);
+                }
                 ?>
 
                 <form action="" method="POST">
@@ -55,6 +60,7 @@ if (isset($_POST['submit'])) {
     $count = mysqli_num_rows($res);
     if($count == 1){
         $_SESSION['login'] = "<div class='success'> Login Successfull! </div>";
+        $_SESSION['user'] = $username; //---> This session variable will be unset during logout => call to session_destroy()
         header("Location:".HOMEURL.'admin/');
     } else {
         $_SESSION['login'] = "<div class='error'> Login attempt failed! Username and Password do not match. </div>";

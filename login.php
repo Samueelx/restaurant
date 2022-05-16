@@ -51,7 +51,7 @@
         <div class="positioning">
             <div class="center">
                 <h1>Login</h1>
-                <form action="" method="post">
+                <form action="" method="POST">
                     <div class="txt_field error">
                         <input type="text" name="username" id="username">
                         <span></span>

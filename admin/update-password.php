@@ -51,6 +51,7 @@ include('./partials/menu.php');
 
 <?php
 if (isset($_POST['submit'])) {
+    /**Get the data from the form. */
     $id = $_POST['id'];
     $current_password = sha1($_POST['current_password']);
     $new_password = sha1($_POST['new_password']);

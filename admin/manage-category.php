@@ -14,8 +14,15 @@ include('./partials/menu.php');
                 echo $_SESSION['add'];
                 unset($_SESSION['add']);
             }
+
+            if (isset($_SESSION['delete'])){
+                echo $_SESSION['delete'];
+                unset($_SESSION['delete']);
+            }
             ?>
         </div>
+
+        <br/><br/>
 
         <!--Button to add category-->
         <a href="<?php echo HOMEURL; ?>admin/add-category.php" class="btn-primary">Add Category</a>
@@ -57,7 +64,7 @@ include('./partials/menu.php');
                         <td> <?php echo $modified; ?> </td>
                         <td>
                             <a href="#" class="btn-secondary">Update Category</a>
-                            <a href="#" class="btn-danger">Delete Category</a>
+                            <a href="<?php echo HOMEURL; ?>admin/delete-category.php?id=<?php echo $id; ?>" class="btn-danger">Delete Category</a>
                         </td>
                     </tr>
 

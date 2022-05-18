@@ -8,47 +8,77 @@ include('./partials/menu.php');
 
         <br /> <br />
 
-        <!--Button to add admin-->
-        <a href="#" class="btn-primary">Add Category</a>
+        <div class="response">
+            <?php
+            if (isset($_SESSION['add'])) {
+                echo $_SESSION['add'];
+                unset($_SESSION['add']);
+            }
+            ?>
+        </div>
+
+        <!--Button to add category-->
+        <a href="<?php echo HOMEURL; ?>admin/add-category.php" class="btn-primary">Add Category</a>
 
         <br /> <br /> <br />
         <table class="tbl-full">
             <tr>
-                <th>Username</th>
-                <th>First Name</th>
-                <th>Last Name</th>
+                <th>Title</th>
+                <th>Active</th>
+                <th>Last Modified</th>
                 <th>Actions</th>
             </tr>
 
-            <tr>
-                <td>fancynancy</td>
-                <td>Fancy</td>
-                <td>Nancy</td>
-                <td>
-                    <a href="#" class="btn-secondary">Update Admin</a>
-                    <a href="#" class="btn-danger">Delete Admin</a>
-                </td>
-            </tr>
+            <?php
 
-            <tr>
-                <td>fancynancy</td>
-                <td>Fancy</td>
-                <td>Nancy</td>
-                <td>
-                    <a href="#" class="btn-secondary">Update Admin</a>
-                    <a href="#" class="btn-danger">Delete Admin</a>
-                </td>
-            </tr>
+            $query = "SELECT * FROM menu_type;";
+            $res = mysqli_query($conn, $query);
 
-            <tr>
-                <td>fancynancy</td>
-                <td>Fancy</td>
-                <td>Nancy</td>
-                <td>
-                    <a href="#" class="btn-secondary">Update Admin</a>
-                    <a href="#" class="btn-danger">Delete Admin</a>
-                </td>
-            </tr>
+            $count = mysqli_num_rows($res);
+
+            if ($count > 0) {
+                while ($row = mysqli_fetch_assoc($res)) {
+                    $id = $row['id'];
+                    $title = $row['title'];
+                    $active = $row['active'];
+                    $modified = $row['created_at'];
+
+                    if($active == 0){
+                        $active = "No";
+                    } else {
+                        $active = "Yes";
+                    }
+
+            ?>
+
+                    <tr>
+                        <td> <?php echo $title; ?></td>
+                        <td> <?php echo $active; ?></td>
+                        <td> <?php echo $modified; ?> </td>
+                        <td>
+                            <a href="#" class="btn-secondary">Update Category</a>
+                            <a href="#" class="btn-danger">Delete Category</a>
+                        </td>
+                    </tr>
+
+                <?php
+
+                }
+            } else {
+
+
+                ?>
+
+                <tr>
+                    <td colspan="4">
+                        <div class="error">No categories added.</div>
+                    </td>
+                </tr>
+
+            <?php
+            }
+            ?>
+
         </table>
     </div>
 </div>

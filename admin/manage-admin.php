@@ -56,6 +56,7 @@ include('./partials/menu.php');
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Email</th>
+                <th>Admin</th>
                 <th>Actions</th>
             </tr>
 
@@ -73,6 +74,13 @@ include('./partials/menu.php');
                         $firstname = $rows['first_name'];
                         $lastname = $rows['last_name'];
                         $email = $rows['email'];
+                        $admin = $rows['isAdmin'];
+
+                        if($admin == 0){
+                            $admin = "No";
+                        } else {
+                            $admin = "Yes";
+                        }
 
                         /**Display the values: */
             ?>
@@ -82,10 +90,11 @@ include('./partials/menu.php');
                             <td><?php echo $firstname; ?></td>
                             <td><?php echo $lastname; ?></td>
                             <td> <?php echo $email; ?> </td>
+                            <td> <?php echo $admin; ?> </td>
                             <td>
                                 <a href="<?php echo HOMEURL; ?>admin/update-password.php?id=<?php echo $id; ?>" class="btn-primary">Change Password</a>
-                                <a href="<?php echo HOMEURL; ?>admin/update-user.php?id=<?php echo $id; ?>" class="btn-secondary">Update Admin</a>
-                                <a href="<?php echo HOMEURL; ?>admin/delete-user.php?id=<?php echo $id; ?>" class="btn-danger">Delete Admin</a>
+                                <a href="<?php echo HOMEURL; ?>admin/update-user.php?id=<?php echo $id; ?>" class="btn-secondary">Update User</a>
+                                <a href="<?php echo HOMEURL; ?>admin/delete-user.php?id=<?php echo $id; ?>" class="btn-danger">Delete User</a>
                             </td>
                         </tr>
 

@@ -26,6 +26,7 @@ include('./partials/menu.php');
                 $lastname = $row['last_name'];
                 $email = $row['email'];
                 $phone = $row['phone'];
+                $admin = $row['isAdmin'];
 
             } else {
                 header('Location:'.HOMEURL.'admin/manage-admin.php');
@@ -76,14 +77,14 @@ include('./partials/menu.php');
                     <td>
                         <div class="radio">
                             <label for="Yes">
-                                <input type="radio" name="admin" id="" value="1">
+                                <input <?php if($admin == 1){echo "checked";} ?> type="radio" name="admin" id="" value="1">
                                 Yes
                             </label>
                         </div>
 
                         <div class="radio">
                             <label for="No">
-                                <input type="radio" name="admin" id="" value="0">
+                                <input <?php if($admin == 0){echo "checked";} ?> type="radio" name="admin" id="" value="0">
                                 No
                             </label>
                         </div>

@@ -8,6 +8,13 @@ include('./partials/menu.php');
 
         <br /><br />
 
+        <?php
+        if(isset($_SESSION['upload'])){
+            echo $_SESSION['upload'];
+            unset($_SESSION['upload']);
+        }
+        ?>
+
         <form action="" method="POST" enctype="multipart/form-data">
             <table class="tbl-30">
                 <tr>
@@ -49,22 +56,22 @@ include('./partials/menu.php');
                             $res = mysqli_query($conn, $sql);
                             $count = mysqli_num_rows($res);
 
-                            if($count > 0){
-                                while($row = mysqli_fetch_assoc($res)){
+                            if ($count > 0) {
+                                while ($row = mysqli_fetch_assoc($res)) {
                                     $id = $row['id'];
                                     $title = $row['title'];
 
-                                    ?>
+                            ?>
                                     <option value="<?php echo $id; ?>"><?php echo $title; ?></option>
-                                    <?php
+                                <?php
                                 }
                             } else {
                                 ?>
                                 <option value="0">No Category Found</option>
-                                <?php
+                            <?php
                             }
                             ?>
-                            
+
                         </select>
                     </td>
                 </tr>
@@ -95,6 +102,58 @@ include('./partials/menu.php');
                 </tr>
             </table>
         </form>
+
+        <?php
+        if(isset($_POST['submit'])){
+            $name = $_POST['name'];
+            $description = $_POST['description'];
+            $price = $_POST['price'];
+            $category = $_POST['category'];
+            
+            if(isset($_POST['status'])){
+                $status = $_POST['status'];
+            } else {
+                $status = 0;
+            }
+            /**Check whether the select image is clicked or not. */
+            if(isset($_FILES['image']['name'])){
+                $image_name = $_FILES['image']['name'];
+
+                /**check whether image is selected */
+                if($image_name != ""){
+                    /**Rename the image */
+                    $image_info = explode(".", $image_name);
+                    $ext = end($image_info);
+                    $image_name = "Food-item-".rand(0000, 9999).".".$ext;
+
+                    /**Upload image */
+                    $src = $_FILES['image']['tmp_name'];
+                    $dst = "../resources/images/food/".$image_name;
+
+                    $upload = move_uploaded_file($src, $dst);
+                    if($upload == false){
+                        $_SESSION['upload'] = "<div class='error'> Failed to upload image! </div>";
+                        header("Location:".HOMEURL.'admin/add-food.php');
+                        die();
+                    }
+                }
+            } else {
+                $image_name = "";
+            }
+
+            $query = "INSERT INTO Menu (name, description, photo, price, created_at, type_id, status) VALUES ('$name', '$description', '$image_name', $price, NOW(), $category, $status);";
+            $response = mysqli_query($conn, $query);
+            
+            if($response == true){
+                $_SESSION['add'] = "<div class='success'> Food item added successfully! </div>";
+                header("Location:".HOMEURL.'admin/manage-food.php');
+            } else {
+                $_SESSION['add'] = "<div class='error'> Failed to add food item! </div>";
+                header("Location:".HOMEURL.'admin/manage-food.php');
+            }
+        }
+
+        ?>
     </div>
 </div>
 

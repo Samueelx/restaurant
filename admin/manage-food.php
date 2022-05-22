@@ -8,6 +8,13 @@ include('./partials/menu.php');
 
         <br /> <br />
 
+        <?php
+        if(isset($_SESSION['add'])){
+            echo $_SESSION['add'];
+            unset($_SESSION['add']);
+        }
+        ?>
+
         <!--Button to add admin-->
         <a href="<?php echo HOMEURL; ?>admin/add-food.php" class="btn-primary">Add Food</a>
 

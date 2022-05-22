@@ -9,7 +9,7 @@ include('./partials/menu.php');
         <br /> <br />
 
         <!--Button to add admin-->
-        <a href="#" class="btn-primary">Add Food</a>
+        <a href="<?php echo HOMEURL; ?>admin/add-food.php" class="btn-primary">Add Food</a>
 
         <br /> <br /> <br />
         <table class="tbl-full">

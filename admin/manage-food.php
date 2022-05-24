@@ -9,11 +9,13 @@ include('./partials/menu.php');
         <br /> <br />
 
         <?php
-        if(isset($_SESSION['add'])){
+        if (isset($_SESSION['add'])) {
             echo $_SESSION['add'];
             unset($_SESSION['add']);
         }
         ?>
+
+        <br /> <br />
 
         <!--Button to add admin-->
         <a href="<?php echo HOMEURL; ?>admin/add-food.php" class="btn-primary">Add Food</a>
@@ -21,41 +23,63 @@ include('./partials/menu.php');
         <br /> <br /> <br />
         <table class="tbl-full">
             <tr>
-                <th>Username</th>
-                <th>First Name</th>
-                <th>Last Name</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Image</th>
+                <th>Available</th>
                 <th>Actions</th>
             </tr>
 
-            <tr>
-                <td>fancynancy</td>
-                <td>Fancy</td>
-                <td>Nancy</td>
-                <td>
-                    <a href="#" class="btn-secondary">Update Admin</a>
-                    <a href="#" class="btn-danger">Delete Admin</a>
-                </td>
-            </tr>
+            <?php
 
-            <tr>
-                <td>fancynancy</td>
-                <td>Fancy</td>
-                <td>Nancy</td>
-                <td>
-                    <a href="#" class="btn-secondary">Update Admin</a>
-                    <a href="#" class="btn-danger">Delete Admin</a>
-                </td>
-            </tr>
+            $query = "SELECT * FROM Menu;";
+            $res = mysqli_query($conn, $query);
 
-            <tr>
-                <td>fancynancy</td>
-                <td>Fancy</td>
-                <td>Nancy</td>
-                <td>
-                    <a href="#" class="btn-secondary">Update Admin</a>
-                    <a href="#" class="btn-danger">Delete Admin</a>
-                </td>
-            </tr>
+            $count = mysqli_num_rows($res);
+            if ($count > 0) {
+                while ($row = mysqli_fetch_assoc($res)) {
+                    $id = $row['item_id'];
+                    $name = $row['name'];
+                    $image_name = $row['photo'];
+                    $price = $row['price'];
+                    $status = $row['status'];
+
+                    if($status == 0){
+                        $status = "No";
+                    } else {
+                        $status = "Yes";
+                    }
+
+            ?>
+
+                    <tr>
+                        <td><?php echo $name; ?></td>
+                        <td>KES <?php echo $price; ?></td>
+                        <td>
+                            <?php
+                            if($image_name = ""){
+                                echo "<div class='error'> Image not available in database table. </div>";
+                            } else {
+                                ?>
+                                <img src="<?php echo HOMEURL; ?>resources/images/food/<?php echo $image_name; ?>" height="100px" width="100px">
+                                <?php
+                            }
+                            ?>
+                        </td>
+                        <td><?php echo $status; ?></td>
+                        <td>
+                            <a href="#" class="btn-secondary">Update Item</a>
+                            <a href="#" class="btn-danger">Delete Item</a>
+                        </td>
+                    </tr>
+
+            <?php
+                }
+            } else {
+                echo "<tr> <td colspan='5' class='error'> Food items not yet added to database. <td> </tr>";
+            }
+            ?>
+
         </table>
     </div>
 </div>

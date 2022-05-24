@@ -13,6 +13,11 @@ include('./partials/menu.php');
             echo $_SESSION['add'];
             unset($_SESSION['add']);
         }
+
+        if(isset($_SESSION['delete'])){
+            echo $_SESSION['delete'];
+            unset($_SESSION['delete']);
+        }
         ?>
 
         <br /> <br />
@@ -57,7 +62,7 @@ include('./partials/menu.php');
                         <td>KES <?php echo $price; ?></td>
                         <td>
                             <?php
-                            if($image_name = ""){
+                            if($image_name == ""){
                                 echo "<div class='error'> Image not available in database table. </div>";
                             } else {
                                 ?>
@@ -69,7 +74,7 @@ include('./partials/menu.php');
                         <td><?php echo $status; ?></td>
                         <td>
                             <a href="#" class="btn-secondary">Update Item</a>
-                            <a href="#" class="btn-danger">Delete Item</a>
+                            <a href="<?php echo HOMEURL; ?>admin/delete-food.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-danger">Delete Item</a>
                         </td>
                     </tr>
 

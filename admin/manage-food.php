@@ -61,7 +61,7 @@ include('./partials/menu.php');
                                 echo "<div class='error'> Image not available in database table. </div>";
                             } else {
                                 ?>
-                                <img src="<?php echo HOMEURL; ?>resources/images/food/<?php echo $image_name; ?>" height="100px" width="100px">
+                                <img src="<?php echo HOMEURL; ?>resources/images/food/<?php echo $image_name; ?>" height="100px" width="150px">
                                 <?php
                             }
                             ?>

@@ -83,7 +83,7 @@ include('./partials/menu.php');
                         </td>
                         <td><?php echo $status; ?></td>
                         <td>
-                            <a href="#" class="btn-secondary">Update Item</a>
+                            <a href="<?php echo HOMEURL; ?>admin/update-food.php?id=<?php echo $id; ?>" class="btn-secondary">Update Item</a>
                             <a href="<?php echo HOMEURL; ?>admin/delete-food.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-danger">Delete Item</a>
                         </td>
                     </tr>

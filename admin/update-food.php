@@ -2,6 +2,28 @@
 include('./partials/menu.php');
 ?>
 
+<?php
+
+if(isset($_GET['id'])){
+    $id = $_GET['id'];
+
+    $sql2 = "SELECT * FROM Menu WHERE item_id=$id;";
+    $res2 = mysqli_query($conn, $sql2);
+    $row2 = mysqli_fetch_assoc($res2);
+
+    $name = $row2['name'];
+    $description = $row2['description'];
+    $current_image_name = $row2['photo'];
+    $price = $row2['price'];
+    $current_category = $row2['type_id'];
+    $status = $row2['status'];
+
+} else {
+    header("Location:".HOMEURL.'admin/manage-food.php');
+}
+
+?>
+
 <div class="main-content">
     <div class="wrapper">
         <h1>Update Food</h1>
@@ -12,21 +34,30 @@ include('./partials/menu.php');
                 <tr>
                     <td>Name: </td>
                     <td>
-                        <input type="text" name="name" id="">
+                        <input type="text" name="name" id="" value="<?php echo $name; ?>">
                     </td>
                 </tr>
 
                 <tr>
                     <td>Description: </td>
                     <td>
-                        <textarea name="description" id="" cols="30" rows="5"></textarea>
+                        <textarea name="description" id="" cols="30" rows="5"> <?php echo $description; ?> </textarea>
                     </td>
                 </tr>
 
                 <tr>
                     <td>Current Image: </td>
                     <td>
-                        Display Image if available.
+                        <?php
+                        if($current_image_name == ""){
+                            echo "<div> Image is not available! </div>";
+                        } else {
+                            ?>
+                            <img src="<?php echo HOMEURL; ?>resources/images/food/<?php echo $current_image_name; ?>" alt="" height="150px" width="200px">
+                            <?php
+                        }
+                        
+                        ?>
                     </td>
                 </tr>
 
@@ -40,7 +71,7 @@ include('./partials/menu.php');
                 <tr>
                     <td>Price: </td>
                     <td>
-                        <input type="number" name="price" id="">
+                        <input type="number" name="price" id="" value="<?php echo $price; ?>">
                     </td>
                 </tr>
 
@@ -60,7 +91,7 @@ include('./partials/menu.php');
                                     $category_id = $row['id'];
 
                                     ?>
-                                    <option value="<?php echo $category_id; ?>"> <?php echo $category_title; ?> </option>
+                                    <option <?php if($current_category == $category_id){echo "selected";} ?> value="<?php echo $category_id; ?>"> <?php echo $category_title; ?> </option>
                                     <?php
                                 }
                             } else {
@@ -78,14 +109,14 @@ include('./partials/menu.php');
                     <td>
                         <div class="radio">
                             <label for="Yes">
-                                <input type="radio" name="status" id="" value="1">
+                                <input <?php if($status == 1){echo "checked";} ?> type="radio" name="status" id="" value="1">
                                 Available
                             </label>
                         </div>
 
                         <div class="radio">
                             <label for="No">
-                                <input type="radio" name="status" id="" value="0">
+                                <input <?php if($status == 0){echo "checked";} ?> type="radio" name="status" id="" value="0">
                                 Not Available
                             </label>
                         </div>

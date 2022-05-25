@@ -4,7 +4,7 @@ include('./partials/menu.php');
 
 <?php
 
-if(isset($_GET['id'])){
+if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
     $sql2 = "SELECT * FROM Menu WHERE item_id=$id;";
@@ -17,9 +17,8 @@ if(isset($_GET['id'])){
     $price = $row2['price'];
     $current_category = $row2['type_id'];
     $status = $row2['status'];
-
 } else {
-    header("Location:".HOMEURL.'admin/manage-food.php');
+    header("Location:" . HOMEURL . 'admin/manage-food.php');
 }
 
 ?>
@@ -49,14 +48,14 @@ if(isset($_GET['id'])){
                     <td>Current Image: </td>
                     <td>
                         <?php
-                        if($current_image_name == ""){
+                        if ($current_image_name == "") {
                             echo "<div> Image is not available! </div>";
                         } else {
-                            ?>
+                        ?>
                             <img src="<?php echo HOMEURL; ?>resources/images/food/<?php echo $current_image_name; ?>" alt="" height="150px" width="200px">
-                            <?php
+                        <?php
                         }
-                        
+
                         ?>
                     </td>
                 </tr>
@@ -85,14 +84,16 @@ if(isset($_GET['id'])){
                             $res = mysqli_query($conn, $sql);
                             $count = mysqli_num_rows($res);
 
-                            if($count>0){
-                                while($row=mysqli_fetch_assoc($res)){
+                            if ($count > 0) {
+                                while ($row = mysqli_fetch_assoc($res)) {
                                     $category_title = $row['title'];
                                     $category_id = $row['id'];
 
-                                    ?>
-                                    <option <?php if($current_category == $category_id){echo "selected";} ?> value="<?php echo $category_id; ?>"> <?php echo $category_title; ?> </option>
-                                    <?php
+                            ?>
+                                    <option <?php if ($current_category == $category_id) {
+                                                echo "selected";
+                                            } ?> value="<?php echo $category_id; ?>"> <?php echo $category_title; ?> </option>
+                            <?php
                                 }
                             } else {
                                 echo "<option value='0'> Category not available </option>";
@@ -109,14 +110,18 @@ if(isset($_GET['id'])){
                     <td>
                         <div class="radio">
                             <label for="Yes">
-                                <input <?php if($status == 1){echo "checked";} ?> type="radio" name="status" id="" value="1">
+                                <input <?php if ($status == 1) {
+                                            echo "checked";
+                                        } ?> type="radio" name="status" id="" value="1">
                                 Available
                             </label>
                         </div>
 
                         <div class="radio">
                             <label for="No">
-                                <input <?php if($status == 0){echo "checked";} ?> type="radio" name="status" id="" value="0">
+                                <input <?php if ($status == 0) {
+                                            echo "checked";
+                                        } ?> type="radio" name="status" id="" value="0">
                                 Not Available
                             </label>
                         </div>
@@ -125,11 +130,82 @@ if(isset($_GET['id'])){
 
                 <tr>
                     <td colspan="2">
+                        <input type="hidden" name="id" value="<?php echo $id; ?>">
+                        <input type="hidden" name="current_image" value="<?php echo $current_image_name; ?>">
                         <input type="submit" value="Update Food" name="submit" class="btn-secondary">
                     </td>
                 </tr>
             </table>
         </form>
+
+        <?php
+        if(isset($_POST['submit'])){
+            $id = $_POST['id'];
+            $name = $_POST['name'];
+            $description = $_POST['description'];
+            $current_image = $_POST['current_image'];
+            $price = $_POST['price'];
+            $category = $_POST['category'];
+            $status = $_POST['status'];
+            
+
+            /**Check whether the upload button is seleced. */
+            if(isset($_FILES['image']['name'])){
+                $image_name = $_FILES['image']['name'];
+
+                /**Check whether the image file is available */
+                if($image_name != ""){
+                    /**Rename the image */
+                    //$ext = end(explode('.', $image_name));
+                    $image_info = explode(".", $image_name);
+                    $ext = end($image_info);
+                    $image_name = "Food-Item-".rand(0000, 9999).".".$ext;
+
+                    /**Upload the image */
+                    $source_path = $_FILES['image']['tmp_name'];
+                    $destination_path = "../resources/images/food/".$image_name;
+
+                    $upload = move_uploaded_file($source_path, $destination_path);
+                    if($upload == false){
+                        $_SESSION['upload'] = "<div class='error'> Failed to upload new image </div>";
+                        header("Location:".HOMEURL.'admin/manage-food.php');
+                        die();
+                    }
+
+                    /**Remove current image if it's available. */
+                    if($current_image != ""){
+                        $remove_path = "../resources/images/food/".$current_image;
+                        $remove = unlink($remove_path);
+
+                        if($remove == false){
+                            $_SESSION['remove-failed'] = "<div> Failed to remove the current image. </div>";
+                            header("Location:".HOMEURL.'admin/manage-food.php');
+
+                            die();
+                        }
+                    }
+                }
+
+
+            } else {
+                $image_name = $current_image;
+            }
+
+            /**Update database table */
+            $query = "UPDATE Menu SET name = '$name', description = '$description', photo = '$image_name', price = $price, type_id = $category, status = $status WHERE item_id = $id;";
+            $response = mysqli_query($conn, $query);
+            if($response == true){
+                $_SESSION['update'] = "<div class='success'> Food updated successfully. </div>";
+                header("Location:".HOMEURL.'admin/manage-food.php');
+            } else {
+                $_SESSION['update'] = "<div class='error'> Failed to update food item. </div>";
+                header("Location:".HOMEURL.'admin/manage-food.php');
+            }
+
+        }
+
+
+        ?>
     </div>
 </div>
 

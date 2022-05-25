@@ -28,6 +28,11 @@ include('./partials/menu.php');
             echo $_SESSION['unauthorize'];
             unset($_SESSION['unauthorize']);
         }
+
+        if(isset($_SESSION['update'])){
+            echo $_SESSION['update'];
+            unset($_SESSION['update']);
+        }
         ?>
 
         <br /> <br />

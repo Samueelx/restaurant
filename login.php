@@ -1,3 +1,5 @@
+<?php include('./config/constants.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,29 +21,11 @@
 </head>
 
 <body>
-    <header>
+    <header style="height: 10vh; padding: 1.5rem;">
         <nav class="navigation">
             <div>
                 <h2 id="heading">Online Food Ordering</h2>
             </div>
-            <ul id="navigation-list" class="navigation-list">
-                <li class="nav-item">
-                    <a href="./index.php">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="./login.php">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a href="./signup.php">Sign Up</a>
-                </li>
-                <li class="nav-item">
-                    <a href="./menu.php">Menu</a>
-                </li>
-                <li class="nav-item">
-                    <a href="./about.php">About</a>
-                </li>
-            </ul>
-            <button class="order-btn">Order</button>
         </nav>
     </header>
 

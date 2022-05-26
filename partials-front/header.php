@@ -1,0 +1,50 @@
+<?php include('./config/constants.php'); ?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./resources/icons/font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <script src="./javascript/jquery-3.6.0.js" crossorigin="anonymous" defer></script>
+    <script src="./javascript/script.js" defer></script>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- <link rel="stylesheet" href="./css/menu.css"> -->
+    <link rel="shortcut icon" href="./resources/icons/codechef.svg" type="image/x-icon">
+    <title>Pimo</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navigation">
+            <div>
+                <h2 id="heading">Online Food Ordering</h2>
+            </div>
+            <ul id="navigation-list" class="navigation-list">
+                <li class="nav-item">
+                    <a href="<?php echo HOMEURL; ?>">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?php echo HOMEURL; ?>login.php">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?php echo HOMEURL; ?>signup.php">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?php echo HOMEURL; ?>menu.php">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?php echo HOMEURL; ?>about.php">About</a>
+                </li>
+            </ul>
+            <button class="order-btn">Order</button>
+        </nav>
+    </header>

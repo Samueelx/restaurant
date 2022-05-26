@@ -150,7 +150,7 @@ if (isset($_GET['id'])) {
             
 
             /**Check whether the upload button is seleced. */
-            if(isset($_FILES['image']['name'])){
+            if($_FILES['image']['name'] != ""){
                 $image_name = $_FILES['image']['name'];
 
                 /**Check whether the image file is available */

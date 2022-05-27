@@ -20,6 +20,7 @@ include('./partials/login-check.php');
 
 
     <link rel="stylesheet" href="../css/admin.css">
+    <link rel="shortcut icon" href="../resources/icons/codechef.svg" type="image/x-icon">
     <title>Food Ordering - Admin Panel</title>
 </head>
 

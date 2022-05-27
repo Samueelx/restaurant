@@ -184,10 +184,14 @@ if (isset($_GET['id'])) {
                             die();
                         }
                     }
+                } else {
+                    /**Default image when new image is not selected. */
+                    $image_name = $current_image;   
                 }
 
 
             } else {
+                /**Default image when add file/image button is not clicked */
                 $image_name = $current_image;
             }
 

@@ -73,6 +73,7 @@
                 ?>
                         <div class="food-items">
                             <?php
+                            /**Check whether image is available */
                             if ($image_name == "") {
                                 echo "<div class='error'> Image not available! </div>";
                             } else {
@@ -159,18 +160,50 @@
                     <h3>Breakfast & Snacks</h3>
                     <hr>
                 </div>
-                <div class="food-items">
-                    <img src="./resources/images/bread-and-coffee.jpg" alt="Bread and Coffee" class="item-image">
-                    <div class="details">
-                        <div class="details-sub">
-                            <h5 class="title">Bread and Coffee</h5>
-                            <h5 class="price">KES 300</h5>
-                        </div>
-                        <p>Having a nice cup of coffee with some artisan bread will make you feel happy, but it can also make your brain function more efficiently.</p>
-                        <button class="add-to-cart">Add To Cart</button>
-                    </div>
-                </div>
+                <?php
+                $sql = "SELECT * FROM Menu WHERE type_id = 3 AND status = 1 LIMIT 6;";
+                $response = mysqli_query($conn, $sql);
+                $num_of_rows = mysqli_num_rows($response);
 
+                if ($num_of_rows > 0) {
+                    while ($row2 = mysqli_fetch_assoc($response)) {
+                        $id = $row2['item_id'];
+                        $name = $row2['name'];
+                        $description = $row2['description'];
+                        $image_name = $row2['photo'];
+                        $price = $row2['price'];
+
+                ?>
+                        <div class="food-items">
+                            <?php
+                            /**Check whether image is available */
+                            if ($image_name == "") {
+                                echo "<div class='error'> Image not available! </div>";
+                            } else {
+                            ?>
+                                <img src="<?php echo HOMEURL; ?>resources/images/food/<?php echo $image_name; ?>" alt="Bread and Coffee" class="item-image">
+                            <?php
+                            }
+                            ?>
+
+                            <div class="details">
+                                <div class="details-sub">
+                                    <h5 class="title"><?php echo $name; ?></h5>
+                                    <h5 class="price"><?php echo "KES " . $price; ?></h5>
+                                </div>
+                                <p><?php echo $description; ?></p>
+                                <button class="add-to-cart">Add To Cart</button>
+                            </div>
+                        </div>
+
+                <?php
+                    }
+                } else {
+                    echo "<div class='error'> Food items not available! </div>";
+                }
+                ?>
+
+                <!--
                 <div class="food-items">
                     <img src="./resources/images/pie.jpg" alt="Meat Pie" class="item-image">
                     <div class="details">
@@ -230,24 +263,55 @@
                         <button class="add-to-cart">Add To Cart</button>
                     </div>
                 </div>
+            -->
 
                 <div class="menu-type">
                     <h3>Drinks</h3>
                     <hr>
                 </div>
 
-                <div class="food-items">
-                    <img src="./resources/images/lemonade.jpg" alt="Lemonade" class="item-image">
-                    <div class="details">
-                        <div class="details-sub">
-                            <h5 class="title">Lemonade</h5>
-                            <h5 class="price">KES 200</h5>
-                        </div>
-                        <p>Classic sweet lemonade. Lemonade is a simple beverage characterized by its lemon flavor.</p>
-                        <button class="add-to-cart">Add To Cart</button>
-                    </div>
-                </div>
+                <?php
+                $query = "SELECT * FROM Menu WHERE type_id = 5 AND status = 1 LIMIT 6;";
+                $result = mysqli_query($conn, $query);
+                $rows = mysqli_num_rows($result);
 
+                if ($rows > 0) {
+                    while ($row3 = mysqli_fetch_assoc($result)) {
+                        $id = $row3['item_id'];
+                        $name = $row3['name'];
+                        $description = $row3['description'];
+                        $image_name = $row3['photo'];
+                        $price = $row3['price'];
+
+                ?>
+                        <div class="food-items">
+                            <?php
+                            /**Check whether image is available */
+                            if($image_name == ""){
+                                echo "<div> Image is not available! </div>";
+                            } else {
+                                ?>
+                                <img src="<?php echo HOMEURL; ?>resources/images/food/<?php echo $image_name; ?>" alt="Food Item Image" class="item-image">
+                                <?php
+                            }
+                            ?>
+                            <div class="details">
+                                <div class="details-sub">
+                                    <h5 class="title"><?php echo $name; ?></h5>
+                                    <h5 class="price"><?php echo "KES ". $price; ?></h5>
+                                </div>
+                                <p><?php echo $description; ?></p>
+                                <button class="add-to-cart">Add To Cart</button>
+                            </div>
+                        </div>
+                <?php
+                    }
+                } else {
+                    echo "<div> Food items not available </div>";
+                }
+                ?>
+
+                <!--
                 <div class="food-items">
                     <img src="./resources/images/Milkshake.jpg" alt="Milkshake" class="item-image">
                     <div class="details">
@@ -307,6 +371,7 @@
                         <button class="add-to-cart">Add To Cart</button>
                     </div>
                 </div>
+            -->
             </div>
         </section>
 

@@ -57,17 +57,47 @@
                     <h3>Main Meal</h3>
                     <hr>
                 </div>
-                <div class="food-items">
-                    <img src="./resources/images/peperoni-pizza.jpg" alt="pepperoni pizza" class="item-image">
-                    <div class="details">
-                        <div class="details-sub">
-                            <h5 class="title">Pepperoni Pizza</h5>
-                            <h5 class="price">KES 1200</h5>
+                <?php
+                /**Display food items that belong in the Main Meal Category */
+                $main = "SELECT * FROM Menu WHERE type_id = 4 AND status = 1 LIMIT 6;";
+                $res = mysqli_query($conn, $main);
+                $count = mysqli_num_rows($res);
+
+                if ($count > 0) {
+                    while ($row = mysqli_fetch_assoc($res)) {
+                        $id = $row['item_id'];
+                        $name = $row['name'];
+                        $description = $row['description'];
+                        $image_name = $row['photo'];
+                        $price = $row['price'];
+                ?>
+                        <div class="food-items">
+                            <?php
+                            if ($image_name == "") {
+                                echo "<div class='error'> Image not available! </div>";
+                            } else {
+                            ?>
+                                <img src="<?php echo HOMEURL; ?>resources/images/food/<?php echo $image_name; ?>" alt="pepperoni pizza" class="item-image">
+                            <?php
+                            }
+                            ?>
+                            <div class="details">
+                                <div class="details-sub">
+                                    <h5 class="title"><?php echo $name; ?></h5>
+                                    <h5 class="price"><?php echo "KES " . $price; ?></h5>
+                                </div>
+                                <p><?php echo $description; ?></p>
+                                <button class="add-to-cart">Add To Cart</button>
+                            </div>
                         </div>
-                        <p>Pepperoni is one of the most popular pizza toppings. This thinly sliced American salami is typically used for pizza, but sandwiches and wraps are also delicious when stuffed with this tasty cured meat.</p>
-                        <button class="add-to-cart">Add To Cart</button>
-                    </div>
-                </div>
+                <?php
+                    }
+                } else {
+                    echo "<div class='error'> Food not found </div>";
+                }
+                ?>
+
+                <!--
                 <div class="food-items">
                     <img src="./resources/images/ramen.jpg" alt="Ramen" class="item-image">
                     <div class="details">
@@ -123,6 +153,7 @@
                         <button class="add-to-cart">Add To Cart</button>
                     </div>
                 </div>
+-->
 
                 <div class="menu-type">
                     <h3>Breakfast & Snacks</h3>
@@ -287,7 +318,7 @@
                 <span class="cart-quantity cart-header cart-column">QUANTITY</span>
             </div>
             <div class="cart-items">
-                
+
             </div>
 
             <div class="cart-total">
@@ -298,4 +329,4 @@
         </section>
     </main>
 
-<?php include('./partials-front/footer.php'); ?>
+    <?php include('./partials-front/footer.php'); ?>

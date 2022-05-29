@@ -49,6 +49,24 @@
 
     <main>
         <section>
+            <!--Food Search Section-->
+
+            <div class="form-container">
+                <form class="form">
+                    <input type="text" id="search" class="input" name="search" placeholder="Search..." />
+                    <input type="submit" value="search" name="submit">
+                    <button class="clear-results" id="clear">clear</button>
+                </form>
+            </div>
+            <div class="results-container">
+                <ul class="results-list" id="list">
+
+                </ul>
+            </div>
+
+            <!--Food Search Section ends here-->
+
+
             <div class="menu">
                 <div class="heading">
                     <h2>&mdash; Menu &mdash;</h2>
@@ -287,18 +305,18 @@
                         <div class="food-items">
                             <?php
                             /**Check whether image is available */
-                            if($image_name == ""){
+                            if ($image_name == "") {
                                 echo "<div> Image is not available! </div>";
                             } else {
-                                ?>
+                            ?>
                                 <img src="<?php echo HOMEURL; ?>resources/images/food/<?php echo $image_name; ?>" alt="Food Item Image" class="item-image">
-                                <?php
+                            <?php
                             }
                             ?>
                             <div class="details">
                                 <div class="details-sub">
                                     <h5 class="title"><?php echo $name; ?></h5>
-                                    <h5 class="price"><?php echo "KES ". $price; ?></h5>
+                                    <h5 class="price"><?php echo "KES " . $price; ?></h5>
                                 </div>
                                 <p><?php echo $description; ?></p>
                                 <button class="add-to-cart">Add To Cart</button>

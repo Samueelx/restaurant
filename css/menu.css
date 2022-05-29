@@ -11,7 +11,7 @@ main {
     grid-gap: 20px 40px;
 }
 .heading {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     padding: 30px 0;
     grid-column: 1/-1;
     text-align: center;
@@ -78,6 +78,31 @@ main {
     width: 180px;
 }
 .details>button:hover {
+    cursor: pointer;
+}
+
+/**Styling the search bar*/
+.form-container {
+    padding-top: 3rem;
+}
+.form input[type=text]{
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 18px;
+}
+.form input[type=submit], .form button{
+    padding: 6px;
+    background-color: #1B4332;
+    font-size: 18px;
+    border: none;
+    border-radius: 3px;
+    color: #B7E4C7;
+    margin-right: 6px;
+}
+
+.form input[type=submit], .form button:hover {
     cursor: pointer;
 }
 

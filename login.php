@@ -14,9 +14,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
 
 
-    <script src="./javascript/validation.js" defer></script>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/login.css">
+    <script src="./javascript/validation.js" defer></script>
     <title>Login</title>
 </head>
 

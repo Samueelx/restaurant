@@ -83,7 +83,7 @@ main {
 
 /**Styling the search bar*/
 .form-container {
-    padding-top: 3rem;
+    grid-column: 1/-1;
 }
 .form input[type=text]{
     padding: 6px;

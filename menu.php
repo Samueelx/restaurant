@@ -49,28 +49,29 @@
 
     <main>
         <section>
-            <!--Food Search Section-->
-
-            <div class="form-container">
-                <form class="form">
-                    <input type="text" id="search" class="input" name="search" placeholder="Search..." />
-                    <input type="submit" value="search" name="submit">
-                    <button class="clear-results" id="clear">clear</button>
-                </form>
-            </div>
-            <div class="results-container">
-                <ul class="results-list" id="list">
-
-                </ul>
-            </div>
-
-            <!--Food Search Section ends here-->
-
-
             <div class="menu">
                 <div class="heading">
                     <h2>&mdash; Menu &mdash;</h2>
                 </div>
+
+                <!--Food Search Section-->
+
+                <div class="form-container">
+                    <form class="form">
+                        <input type="text" id="search" class="input" name="search" placeholder="Search..." />
+                        <input type="submit" value="search" name="submit">
+                        <button class="clear-results" id="clear">clear</button>
+                    </form>
+                </div>
+                <div class="results-container">
+                    <ul class="results-list" id="list">
+
+                    </ul>
+                </div>
+
+                <!--Food Search Section ends here-->
+
+
                 <div class="menu-type">
                     <h3>Main Meal</h3>
                     <hr>

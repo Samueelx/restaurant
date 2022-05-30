@@ -105,6 +105,12 @@ main {
 .form input[type=submit], .form button:hover {
     cursor: pointer;
 }
+.success {
+    color: #2B9348;
+}
+.error {
+    color: #D00000;
+}
 
 /**Styling the Cart*/
 .container {

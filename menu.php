@@ -59,9 +59,15 @@
                 <div class="form-container">
                     <form action="<?php echo HOMEURL; ?>food-search.php" method="POST" class="form">
                         <input type="text" id="search" class="input" name="search" placeholder="Search..." />
-                        <input type="submit" value="search" name="submit">
-                        <button class="clear-results" id="clear">clear</button>
+                        <input type="submit" value="search" name="submit" id="submit">
                     </form>
+
+                    <?php
+                    if(isset($_SESSION['empty'])){
+                        echo $_SESSION['empty'];
+                        unset($_SESSION['empty']);
+                    }
+                    ?>
                 </div>
                 <div class="results-container">
                     <ul class="results-list" id="list">
@@ -78,7 +84,7 @@
                 </div>
                 <?php
                 /**Display food items that belong in the Main Meal Category */
-                $main = "SELECT * FROM Menu WHERE type_id = 4 AND status = 1 LIMIT 6;";
+                $main = "SELECT * FROM Menu WHERE type_id = 4 AND status = 1 LIMIT 9;";
                 $res = mysqli_query($conn, $main);
                 $count = mysqli_num_rows($res);
 
@@ -180,7 +186,7 @@
                     <hr>
                 </div>
                 <?php
-                $sql = "SELECT * FROM Menu WHERE type_id = 3 AND status = 1 LIMIT 6;";
+                $sql = "SELECT * FROM Menu WHERE type_id = 3 AND status = 1 LIMIT 9;";
                 $response = mysqli_query($conn, $sql);
                 $num_of_rows = mysqli_num_rows($response);
 
@@ -290,7 +296,7 @@
                 </div>
 
                 <?php
-                $query = "SELECT * FROM Menu WHERE type_id = 5 AND status = 1 LIMIT 6;";
+                $query = "SELECT * FROM Menu WHERE type_id = 5 AND status = 1 LIMIT 9;";
                 $result = mysqli_query($conn, $query);
                 $rows = mysqli_num_rows($result);
 

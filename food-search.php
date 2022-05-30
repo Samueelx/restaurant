@@ -57,6 +57,11 @@
 
                 <?php
                 $search = mysqli_real_escape_string($conn, $_POST['search']);
+                if($search == ""){
+                    $_SESSION['empty'] = "<div class='error'>Search input is empty!</div>";
+                    header("Location:".HOMEURL.'menu.php');
+                    die();
+                }
                 $query = "SELECT * FROM Menu WHERE name LIKE '%$search%' OR description LIKE '%$search%';";
                 $res = mysqli_query($conn, $query);
 

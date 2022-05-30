@@ -17,7 +17,7 @@
     <script src="./javascript/menu.js" defer></script>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/menu.css">
-    <title>Menu</title>
+    <title>Search Results</title>
 </head>
 
 <body>
@@ -55,39 +55,48 @@
                     <h2>&mdash; Search Results &mdash;</h2>
                 </div>
 
-                <div class="food-items">
-                    <img src="./resources/images/ramen.jpg" alt="Ramen" class="item-image">
-                    <div class="details">
-                        <div class="details-sub">
-                            <h5 class="title">Ramen</h5>
-                            <h5 class="price">KES 1200</h5>
+                <?php
+                $search = mysqli_real_escape_string($conn, $_POST['search']);
+                $query = "SELECT * FROM Menu WHERE name LIKE '%$search%' OR description LIKE '%$search%';";
+                $res = mysqli_query($conn, $query);
+
+                $count = mysqli_num_rows($res);
+                if ($count > 0) {
+                    while ($row = mysqli_fetch_assoc($res)) {
+                        $id = $row['item_id'];
+                        $name = $row['name'];
+                        $description = $row['description'];
+                        $image_name = $row['photo'];
+                        $price = $row['price'];
+
+                ?>
+                        <div class="food-items">
+                            <?php
+                            if ($image_name == "") {
+                                echo "<div> Image not available! </div>";
+                            } else {
+                            ?>
+                                <img src="<?php echo HOMEURL; ?>resources/images/food/<?php echo $image_name; ?>" alt="Ramen" class="item-image">
+                            <?php
+                            }
+                            ?>
+                            <div class="details">
+                                <div class="details-sub">
+                                    <h5 class="title"><?php echo $name; ?></h5>
+                                    <h5 class="price"><?php echo "KES " . $price; ?></h5>
+                                </div>
+                                <p><?php echo $description; ?></p>
+                                <button class="add-to-cart">Add To Cart</button>
+                            </div>
                         </div>
-                        <p>Ramen is a Japanese noodle soup, with a combination of a rich flavoured broth, one of a variety of types of noodle and a selection of meats or vegetables, often topped with a boiled egg.</p>
-                        <button class="add-to-cart">Add To Cart</button>
-                    </div>
-                </div>
-                <div class="food-items">
-                    <img src="./resources/images/beef-steak.jpg" alt="Beef Steak" class="item-image">
-                    <div class="details">
-                        <div class="details-sub">
-                            <h5 class="title">Beef Steak</h5>
-                            <h5 class="price">KES 1200</h5>
-                        </div>
-                        <p>Enjoy these grilled beef steaks sprinkled with salt and pepper that’s ready in just 20 minutes – perfect for a dinner.</p>
-                        <button class="add-to-cart">Add To Cart</button>
-                    </div>
-                </div>
-                <div class="food-items">
-                    <img src="./resources/images/rice-with-beef.jpg" alt="Rice with Beef" class="item-image">
-                    <div class="details">
-                        <div class="details-sub">
-                            <h5 class="title">Rice with Beef</h5>
-                            <h5 class="price">KES 1200</h5>
-                        </div>
-                        <p>Beef fried rice is probably one of my favorite dishes on a standard Chinese takeout menu.</p>
-                        <button class="add-to-cart">Add To Cart</button>
-                    </div>
-                </div>
+                <?php
+                    }
+                } else {
+                    echo "<div class='error'> Food not found! </div>";
+                }
+                ?>
+
+
             </div>
         </section>
 
@@ -110,4 +119,4 @@
         </section>
     </main>
 
-<?php include('./partials-front/footer.php'); ?>
+    <?php include('./partials-front/footer.php'); ?>

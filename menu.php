@@ -57,7 +57,7 @@
                 <!--Food Search Section-->
 
                 <div class="form-container">
-                    <form class="form">
+                    <form action="<?php echo HOMEURL; ?>food-search.php" method="POST" class="form">
                         <input type="text" id="search" class="input" name="search" placeholder="Search..." />
                         <input type="submit" value="search" name="submit">
                         <button class="clear-results" id="clear">clear</button>

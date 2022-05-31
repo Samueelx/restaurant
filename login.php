@@ -35,11 +35,11 @@
         <div class="positioning">
             <div class="center">
                 <h1>Login</h1>
-                <form action="" method="POST">
+                <form action="login.inc.php" method="POST">
                     <div class="txt_field error">
                         <input type="text" name="username" id="username">
                         <span></span>
-                        <label for="username">Username</label>
+                        <label for="username">Username or Email</label>
                         <small></small>
                     </div>
                     <div class="txt_field success">

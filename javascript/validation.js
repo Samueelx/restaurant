@@ -11,7 +11,6 @@ const townElement = document.querySelector('#town');
 const signup = document.querySelector('#signup');
 
 signup.addEventListener('submit', (e) => {
-    e.preventDefault(); /** Prevents the form from submitting. */
 
     let isUsernameValid = checkUsername(), isEmailValid = checkEmail(), 
     isPasswordValid = checkPassword(), isFirstnameValid = checkFname(), 
@@ -19,6 +18,10 @@ signup.addEventListener('submit', (e) => {
 
     let validForm = isUsernameValid && isEmailValid && isPasswordValid && isFirstnameValid && 
     isLastnameValid;
+    
+    if(validForm === false){
+        e.preventDefault();     /** Prevents the form from submitting. */
+    }
 
 });
 

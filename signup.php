@@ -18,7 +18,7 @@
     <main>
         <div class="center">
             <h1>Signup</h1>
-            <form action="" method="post" id="signup" class="form">
+            <form action="includes/signup.inc.php" method="POST" id="signup" class="form">
                 <div class="txt_field error">
                     <input type="text" name="firstname" id="firstname">
                     <span></span>
@@ -62,13 +62,13 @@
                 </div>
 
                 <div class="txt_field">
-                    <input type="text" name="town" id="town">
+                    <input type="password" name="pwdrepeat" id="pwdrepeat">
                     <span></span>
-                    <label for="town">Town</label>
+                    <label for="town">Repeat Password</label>
                     <small></small>
                 </div>
 
-                <input type="submit" value="Signup" id="signup">
+                <input type="submit" value="Signup" id="signup" name="submit">
             </form>
         </div>
     </main>

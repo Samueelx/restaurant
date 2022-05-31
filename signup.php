@@ -70,8 +70,29 @@
 
                 <input type="submit" value="Signup" id="signup" name="submit">
             </form>
+
+            <?php
+            if (isset($_GET['error'])) {
+                if ($_GET['error'] == "emptyinput") {
+                    echo "<p> Fill in all the fields! </p>";
+                } elseif ($_GET['error'] == "invaliduid") {
+                    echo "<p> Choose a proper username </p>";
+                } elseif ($_GET['error'] == "invalidemail") {
+                    echo "<p> Email already in use! </p>";
+                } elseif ($_GET['error'] == "passwordsdontmatch") {
+                    echo "<p> Passwords don't match! </p>";
+                } elseif ($_GET['error'] == "usernametaken") {
+                    echo "<p> Username already taken! </p>";
+                } elseif ($_GET['error'] == "stmtfailed") {
+                    echo "<p> Something went wrong. </p>";
+                } elseif ($_GET['error'] == "none") {
+                    echo "<p>Nice! You have been signed up.</p>";
+                }
+            }
+            ?>
         </div>
     </main>
+
 </body>
 
 </html>

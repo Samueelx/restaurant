@@ -82,3 +82,36 @@ function createUser($conn, $username, $firstname, $lastname, $email, $phone, $pa
     exit();
 
 }
+
+function emptyInputLogin($username, $password){
+    $result = true;
+    if(empty($username) || empty($password)){
+        $result = true;
+    } else {
+        $result = false;
+    }
+    return $result;
+}
+
+function loginUser($conn, $username, $password){
+    $uidExists = uidExists($conn, $username, $username);
+
+    if($uidExists === false){
+        header("Location:".HOMEURL.'login.php?error=wronglogin');
+        exit();
+    }
+
+    $pwdHashed = $uidExists['passwordHash'];
+    $checkpwd = password_verify($password, $pwdHashed);
+
+    if($checkpwd === false){
+        header("Location:".HOMEURL.'login.php?error=wronglogin');
+        exit();
+    } elseif($checkpwd === true){
+        /**Log in the customer */
+        $_SESSION['customerid'] = $uidExists['customer_id'];
+        $_SESSION['customeruid'] = $uidExists['username'];
+        header("Location:".HOMEURL.'index.php');
+        exit();
+    }
+}

@@ -35,7 +35,7 @@
         <div class="positioning">
             <div class="center">
                 <h1>Login</h1>
-                <form action="login.inc.php" method="POST">
+                <form action="./includes/login.inc.php" method="POST">
                     <div class="txt_field error">
                         <input type="text" name="username" id="username">
                         <span></span>
@@ -49,11 +49,21 @@
                         <small></small>
                     </div>
                     <div class="pass">Forgot Password?</div>
-                    <input type="submit" value="Login" id="signup">
+                    <input type="submit" value="Login" id="signup" name="submit">
                     <div class="signup_link">
                         Not a member? <a href="./signup.php">Sign Up</a>
                     </div>
                 </form>
+
+                <?php
+                if (isset($_GET['error'])) {
+                    if ($_GET['error'] == "emptyinput") {
+                        echo "<p> Fill in all the fields! </p>";
+                    } elseif ($_GET['error'] == "wronglogin") {
+                        echo "<p> Incorrect login information! </p>";
+                    }
+                }
+                ?>
             </div>
         </div>
     </main>

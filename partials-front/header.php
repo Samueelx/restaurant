@@ -33,18 +33,35 @@
                     <a href="<?php echo HOMEURL; ?>">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?php echo HOMEURL; ?>login.php">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?php echo HOMEURL; ?>signup.php">Sign Up</a>
-                </li>
-                <li class="nav-item">
                     <a href="<?php echo HOMEURL; ?>menu.php">Menu</a>
                 </li>
                 <li class="nav-item">
                     <a href="<?php echo HOMEURL; ?>about.php">About</a>
                 </li>
+                <?php
+                if (isset($_SESSION['customeruid'])) {
+                ?>
+                    <li class="nav-item">
+                        <a href="<?php echo HOMEURL; ?>profile.php">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?php echo HOMEURL; ?>includes/logout.inc.php">Log out</a>
+                    </li>
+                <?php
+
+                } else {
+                ?>
+                    <li class="nav-item">
+                        <a href="<?php echo HOMEURL; ?>login.php">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?php echo HOMEURL; ?>signup.php">Sign Up</a>
+                    </li>
+                <?php
+
+                }
+                ?>
             </ul>
-            <button class="order-btn">Order</button>
+            <!-- <button class="order-btn">Order</button> -->
         </nav>
     </header>

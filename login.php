@@ -61,6 +61,8 @@
                         echo "<p> Fill in all the fields! </p>";
                     } elseif ($_GET['error'] == "wronglogin") {
                         echo "<p> Incorrect login information! </p>";
+                    } elseif ($_GET['error'] == "stmtfailed") {
+                        echo "<p> Something went wrong! Please try again. </p>";
                     }
                 }
                 ?>

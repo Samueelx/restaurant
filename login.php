@@ -24,7 +24,7 @@
     <header style="height: 10vh; padding: 1.5rem;">
         <nav class="navigation">
             <div>
-                <h2 id="heading">Online Food Ordering</h2>
+                <h2 id="heading" style="float: none;">Online Food Ordering</h2>
             </div>
         </nav>
     </header>

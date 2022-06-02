@@ -49,6 +49,7 @@ header{
 }
 .container {
     min-height: 100vh;
+    min-width: 100%;
     background-color: var(--light-bg);
     display: flex;
     align-items: center;
@@ -95,6 +96,11 @@ header{
     align-items: center;
     justify-content: center;
     padding: 20px;   
+}
+.update-profile p {
+    margin-top: 1.5rem;
+    text-align: center;
+    color: #D00000;
 }
 .update-profile form {
     padding: 20px;

@@ -58,10 +58,10 @@ include('./partials/menu.php');
         <?php
         /**Process the data only after the button is clicked: */
         if(isset($_POST['submit'])){
-            $title = $_POST['title'];
+            $title = mysqli_real_escape_string($conn, $_POST['title']);
 
             if(isset($_POST['active'])){
-                $active = $_POST['active'];
+                $active = mysqli_real_escape_string($conn, $_POST['active']);
             } else {
                 $active = 0;
             }

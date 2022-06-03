@@ -106,13 +106,13 @@ include('./partials/menu.php');
 <?php
 if(isset($_POST['submit'])){
     /**Get all the values from the form: */
-    $id = $_POST['id'];
-    $username = $_POST['username'];
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $admin = $_POST['admin'];
+    $id = mysqli_real_escape_string($conn, $_POST['id']);
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $firstname = mysqli_real_escape_string($conn, $_POST['firstname']);
+    $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $phone = mysqli_real_escape_string($conn, $_POST['phone']);
+    $admin = mysqli_real_escape_string($conn, $_POST['admin']);
 
     /**Query to Update user: */
     $query = "UPDATE user SET 

@@ -63,6 +63,8 @@
                         echo "<p> Incorrect login information! </p>";
                     } elseif ($_GET['error'] == "stmtfailed") {
                         echo "<p> Something went wrong! Please try again. </p>";
+                    } elseif ($_GET['error'] == "loggedout"){
+                        echo "<p> Please login to access the page. </p>";
                     }
                 }
                 ?>

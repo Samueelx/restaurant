@@ -140,11 +140,11 @@ if (isset($_GET['id'])) {
 
         <?php
         if(isset($_POST['submit'])){
-            $id = $_POST['id'];
-            $name = $_POST['name'];
-            $description = $_POST['description'];
+            $id = mysqli_real_escape_string($conn, $_POST['id']);
+            $name = mysqli_real_escape_string($conn, $_POST['name']);
+            $description = mysqli_real_escape_string($conn, $_POST['description']);
             $current_image = $_POST['current_image'];
-            $price = $_POST['price'];
+            $price = mysqli_real_escape_string($conn, $_POST['price']);
             $category = $_POST['category'];
             $status = $_POST['status'];
             

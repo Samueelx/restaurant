@@ -4,7 +4,7 @@ include('./includes/profile.inc.php');
 
 $customer_id = $_SESSION['customerid'];
 if (!isset($customer_id)) {
-    header("Location:" . HOMEURL . 'index.php');
+    header("Location:" . HOMEURL . 'login.php?error=loggedout');
     exit();
 }
 

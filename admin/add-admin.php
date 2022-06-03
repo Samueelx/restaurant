@@ -99,13 +99,13 @@ include('./partials/footer.php');
 /**Check whether the button is clicked or not. */
 if (isset($_POST['submit'])) {
     //Get data from form:
-    $username = $_POST['username'];
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $email = $_POST['email'];
-    $password = sha1($_POST['password']);
-    $phone = $_POST['phone'];
-    $admin = $_POST['admin'];
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $firstname = mysqli_real_escape_string($conn, $_POST['firstname']);
+    $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $password = mysqli_real_escape_string($conn, sha1($_POST['password']));
+    $phone = mysqli_real_escape_string($conn, $_POST['phone']);
+    $admin = mysqli_real_escape_string($conn, $_POST['admin']);
 
     //query to save data to our database
     $sql = "INSERT INTO user (username, first_name, last_name, email, passwordHash, phone, isAdmin) 

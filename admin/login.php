@@ -49,8 +49,8 @@ include('./partials/login-imports.php');
 <?php
 
 if (isset($_POST['submit'])) {
-    $username = $_POST['username'];
-    $password = sha1($_POST['password']);
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $password = mysqli_real_escape_string($conn, sha1($_POST['password']));
 
     $query = "SELECT * FROM user WHERE username = '$username' AND passwordHash = '$password';";
 

@@ -1,7 +1,7 @@
 <?php include('./config/constants.php');
 $customer_id = $_SESSION['customerid'];
 if(!isset($customer_id)){
-    header("Location:".HOMEURL.'login.php');
+    header("Location:".HOMEURL.'login.php?error=loggedout');
     exit();
 }
 ?>

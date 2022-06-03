@@ -52,10 +52,10 @@ include('./partials/menu.php');
 <?php
 if (isset($_POST['submit'])) {
     /**Get the data from the form. */
-    $id = $_POST['id'];
-    $current_password = sha1($_POST['current_password']);
-    $new_password = sha1($_POST['new_password']);
-    $confirm_password = sha1($_POST['confirm_password']);
+    $id = mysqli_real_escape_string($conn, $_POST['id']);
+    $current_password = mysqli_real_escape_string($conn, sha1($_POST['current_password']));
+    $new_password = mysqli_real_escape_string($conn, sha1($_POST['new_password']));
+    $confirm_password = mysqli_real_escape_string($conn, sha1($_POST['confirm_password']));
 
     /**Check whether the user exists: */
     $sql = "SELECT * FROM user WHERE user_id = $id AND passwordHash = '$current_password';";
@@ -76,7 +76,7 @@ if (isset($_POST['submit'])) {
                     $_SESSION['change-password'] = "<div class='success'> Password changed successfully. </div>";
                     header("Location:" . HOMEURL . 'admin/manage-admin.php');
                 } else {
-                    $_SESSION['change-password'] = "<div class='error'> Failed to change password! </div>";
+                    $_SESSION['change-password'] = "<div class='error'> Something went wrong. Failed to change password! </div>";
                     header("Location:" . HOMEURL . 'admin/manage-admin.php');
                 }
             } else {
@@ -84,7 +84,7 @@ if (isset($_POST['submit'])) {
                 header("Location:" . HOMEURL . 'admin/manage-admin.php');
             }
         } else {
-            $_SESSION['user-not-found'] = "<div class='error'> User not found! </div>";
+            $_SESSION['user-not-found'] = "<div class='error'> User not found or You might have given the wrong password! </div>";
             header("Location:" . HOMEURL . 'admin/manage-admin.php');
         }
     }

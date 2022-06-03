@@ -75,8 +75,8 @@ include('./partials/menu.php');
         <?php
         
         if(isset($_POST['submit'])){
-            $id = $_POST['id'];
-            $title = $_POST['title'];
+            $id = mysqli_real_escape_string($conn, $_POST['id']);
+            $title = mysqli_real_escape_string($conn, $_POST['title']);
             $active = $_POST['active'];
 
             $query = "UPDATE menu_type SET title = '$title', active = '$active', created_at = NOW() WHERE id = $id;";

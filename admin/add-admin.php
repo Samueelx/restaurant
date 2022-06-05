@@ -16,13 +16,14 @@ include('./partials/menu.php');
             }
         ?>
 
-        <form action="" method="POST">
+        <form action="" method="POST" id="signup">
             <table class="tbl-30">
                 <tr>
                     <td>Username:</td>
                     <td>
                         <input type="text" name="username" placeholder="Enter Username" id="username">
                     </td>
+                    <small></small>
                 </tr>
 
                 <tr>
@@ -30,6 +31,7 @@ include('./partials/menu.php');
                     <td>
                         <input type="text" name="firstname" id="firstname" placeholder="Enter First Name">
                     </td>
+                    <small></small>
                 </tr>
 
                 <tr>
@@ -37,6 +39,7 @@ include('./partials/menu.php');
                     <td>
                         <input type="text" name="lastname" id="lastname" placeholder="Enter Last Name">
                     </td>
+                    <small></small>
                 </tr>
 
                 <tr>
@@ -44,6 +47,7 @@ include('./partials/menu.php');
                     <td>
                         <input type="text" name="email" id="email" placeholder="Enter Email">
                     </td>
+                    <small></small>
                 </tr>
 
                 <tr>
@@ -51,6 +55,7 @@ include('./partials/menu.php');
                     <td>
                         <input type="password" name="password" id="password" placeholder="Enter Password">
                     </td>
+                    <small></small>
                 </tr>
 
                 <tr>
@@ -58,6 +63,7 @@ include('./partials/menu.php');
                     <td>
                         <input type="text" name="phone" id="phone" placeholder="Enter Email">
                     </td>
+                    <small></small>
                 </tr>
 
                 <tr>

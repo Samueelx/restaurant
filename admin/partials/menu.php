@@ -21,6 +21,7 @@ include('./partials/login-check.php');
 
     <link rel="stylesheet" href="../css/admin.css">
     <link rel="shortcut icon" href="../resources/icons/codechef.svg" type="image/x-icon">
+    <script src="./javascript/validations.js" defer></script>
     <title>Food Ordering - Admin Panel</title>
 </head>
 

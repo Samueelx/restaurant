@@ -75,6 +75,10 @@ table tr td {
 .error {
     color: #D00000;
 }
+p .error {
+    color: #D00000;
+    padding: 0.313rem;
+}
 
 form {
     font-size: 18px;

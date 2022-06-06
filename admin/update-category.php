@@ -31,6 +31,12 @@ include('./partials/menu.php');
             header("Location:" . HOMEURL . 'admin/manage-category.php');
         }
 
+        if(isset($_GET['error'])){
+            if($_GET['error'] == 'emptyfields'){
+                echo "<p class='error'> No input field can be empty! </p>";
+            }
+        }
+
         ?>
 
         <form action="" method="POST">
@@ -78,6 +84,12 @@ include('./partials/menu.php');
             $id = mysqli_real_escape_string($conn, $_POST['id']);
             $title = mysqli_real_escape_string($conn, $_POST['title']);
             $active = $_POST['active'];
+
+            include_once('./includes/functions.inc.php');
+            if(emptyInputCategory($title, $active) !== false){
+                header("Location:".HOMEURL."admin/update-category.php?id=$id&error=emptyfields");
+                exit();
+            }
 
             $query = "UPDATE menu_type SET title = '$title', active = '$active', created_at = NOW() WHERE id = $id;";
             $response = mysqli_query($conn, $query);

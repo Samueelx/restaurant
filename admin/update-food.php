@@ -28,6 +28,14 @@ if (isset($_GET['id'])) {
         <h1>Update Food</h1>
         <br /> <br />
 
+        <?php
+        if(isset($_GET['error'])){
+            if($_GET['error'] == 'emptyfields'){
+                echo "<p class='error'> No field can be left empty </p>";
+            }
+        }
+        ?>
+
         <form action="" method="POST" enctype="multipart/form-data">
             <table class="tbl-30">
                 <tr>
@@ -147,6 +155,13 @@ if (isset($_GET['id'])) {
             $price = mysqli_real_escape_string($conn, $_POST['price']);
             $category = $_POST['category'];
             $status = $_POST['status'];
+
+            /**Some validations */
+            include_once('./includes/functions.inc.php');
+            if(emptyInputFood($name, $description, $price, $category, $status) !== false){
+                header("Location:".HOMEURL."admin/update-food.php?id=$id&error=emptyfields");
+                exit();
+            }
             
 
             /**Check whether the upload button is seleced. */

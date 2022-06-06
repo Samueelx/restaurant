@@ -13,6 +13,13 @@ include('./partials/menu.php');
             echo $_SESSION['upload'];
             unset($_SESSION['upload']);
         }
+        if(isset($_GET['error'])){
+            if($_GET['error'] == 'itemexists'){
+                echo "<p class='error'> Food item already exists </p>";
+            } elseif($_GET['error'] == 'emptyfields'){
+                echo "<p class='error'> No field can be left empty </p>";
+            }
+        }
         ?>
 
         <form action="" method="POST" enctype="multipart/form-data">
@@ -115,6 +122,18 @@ include('./partials/menu.php');
             } else {
                 $status = 0;
             }
+
+            /**check whether food item already exists and some validations */
+            include_once('./includes/functions.inc.php');
+            if(foodExists($conn, $name) !== false){
+                header("Location:".HOMEURL.'admin/add-food.php?error=itemexists');
+                exit();
+            }
+            if(emptyInputFood($name, $description, $price, $category, $status)){
+                header("Location:".HOMEURL.'admin/add-food.php?error=emptyfields');
+                exit();
+            }
+
             /**Check whether the select image is clicked or not. */
             if(isset($_FILES['image']['name'])){
                 $image_name = $_FILES['image']['name'];

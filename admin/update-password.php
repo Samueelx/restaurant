@@ -44,6 +44,13 @@ include('./partials/menu.php');
             </table>
         </form>
 
+        <?php
+        if(isset($_GET['error'])){
+            if($_GET['error'] == 'emptyinput'){
+                echo "No input field should be left empty";
+            }
+        }
+        ?>
 
     </div>
 </div>
@@ -56,6 +63,13 @@ if (isset($_POST['submit'])) {
     $current_password = mysqli_real_escape_string($conn, sha1($_POST['current_password']));
     $new_password = mysqli_real_escape_string($conn, sha1($_POST['new_password']));
     $confirm_password = mysqli_real_escape_string($conn, sha1($_POST['confirm_password']));
+
+    /**validate for empty password input */
+    include_once('./includes/functions.inc.php');
+    if(emptyInputPassword($current_password, $new_password, $confirm_password) !== false){
+        header("Location:".HOMEURL."admin/update-password.php?id=$id&error=emptyinput");
+        exit();
+    }
 
     /**Check whether the user exists: */
     $sql = "SELECT * FROM user WHERE user_id = $id AND passwordHash = '$current_password';";

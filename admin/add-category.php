@@ -12,6 +12,12 @@ include('./partials/menu.php');
                 echo $_SESSION['add'];
                 unset($_SESSION['add']);
             }
+
+            if(isset($_GET['error'])){
+                if($_GET['error'] == 'emptyfields'){
+                    echo "<p class='error'> No input field can be left empty </p>";
+                }
+            }
             ?>
         </div>
 
@@ -64,6 +70,13 @@ include('./partials/menu.php');
                 $active = mysqli_real_escape_string($conn, $_POST['active']);
             } else {
                 $active = 0;
+            }
+
+            /**Validate data inputs */
+            include_once('./includes/functions.inc.php');
+            if(emptyInputCategory($title, $active) !== false){
+                header("Location:".HOMEURL.'admin/add-category.php?error=emptyfields');
+                exit();
             }
 
             $query = "INSERT INTO menu_type (title, active, created_at) VALUES ('$title', $active, NOW());";

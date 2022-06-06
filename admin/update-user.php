@@ -14,10 +14,10 @@ include('./partials/menu.php');
         $query = "SELECT * FROM user WHERE user_id = $id;";
         $res = mysqli_query($conn, $query);
 
-        if($res==true) {
+        if ($res == true) {
             /**Check whether data is available */
             $count = mysqli_num_rows($res);
-            if($count == 1){
+            if ($count == 1) {
                 $row = mysqli_fetch_assoc($res);
 
                 $id = $row['user_id'];
@@ -27,9 +27,8 @@ include('./partials/menu.php');
                 $email = $row['email'];
                 $phone = $row['phone'];
                 $admin = $row['isAdmin'];
-
             } else {
-                header('Location:'.HOMEURL.'admin/manage-admin.php');
+                header('Location:' . HOMEURL . 'admin/manage-admin.php');
             }
         }
         ?>
@@ -77,14 +76,18 @@ include('./partials/menu.php');
                     <td>
                         <div class="radio">
                             <label for="Yes">
-                                <input <?php if($admin == 1){echo "checked";} ?> type="radio" name="admin" id="" value="1">
+                                <input <?php if ($admin == 1) {
+                                            echo "checked";
+                                        } ?> type="radio" name="admin" id="" value="1">
                                 Yes
                             </label>
                         </div>
 
                         <div class="radio">
                             <label for="No">
-                                <input <?php if($admin == 0){echo "checked";} ?> type="radio" name="admin" id="" value="0">
+                                <input <?php if ($admin == 0) {
+                                            echo "checked";
+                                        } ?> type="radio" name="admin" id="" value="0">
                                 No
                             </label>
                         </div>
@@ -100,11 +103,21 @@ include('./partials/menu.php');
             </table>
 
         </form>
+
+        <?php
+        if (isset($_GET['error'])) {
+            if ($_GET['error'] == 'emptyinput') {
+                echo "<p class='error'> Input field cannot be empty </p>";
+            } elseif ($_GET['error'] == 'invalidemail') {
+                echo "<p class='error'> Email is invalid! Please enter correct email address. </p>";
+            }
+        }
+        ?>
     </div>
 </div>
 
 <?php
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
     /**Get all the values from the form: */
     $id = mysqli_real_escape_string($conn, $_POST['id']);
     $username = mysqli_real_escape_string($conn, $_POST['username']);
@@ -114,6 +127,17 @@ if(isset($_POST['submit'])){
     $phone = mysqli_real_escape_string($conn, $_POST['phone']);
     $admin = mysqli_real_escape_string($conn, $_POST['admin']);
 
+    /**Some validations */
+    include_once('./includes/functions.inc.php');
+    if (emptyInputUser($firstname, $lastname, $username, $email, $phone) !== false) {
+        header("Location:" . HOMEURL . "admin/update-user.php?id=$id&error=emptyinput");
+        exit();
+    }
+    if (invalidEmail($email) !== false) {
+        header("Location:" . HOMEURL . "admin/update-user.php?id=$id&error=invalidemail");
+        exit();
+    }
+
     /**Query to Update user: */
     $query = "UPDATE user SET 
     username = '$username', first_name = '$firstname', last_name = '$lastname', 
@@ -122,14 +146,13 @@ if(isset($_POST['submit'])){
 
     $res = mysqli_query($conn, $query);
 
-    if($res == true){
+    if ($res == true) {
         $_SESSION['update'] = "<div class='success'> User updated successfully </div>";
-        header("Location:".HOMEURL.'admin/manage-admin.php');
+        header("Location:" . HOMEURL . 'admin/manage-admin.php');
     } else {
         $_SESSION['update'] = "<div class='error'> User update failed. Try again later. </div>";
-        header("Location:".HOMEURL.'admin/manage-admin.php');
+        header("Location:" . HOMEURL . 'admin/manage-admin.php');
     }
-
 }
 ?>
 

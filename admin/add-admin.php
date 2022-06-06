@@ -22,48 +22,56 @@ include('./partials/menu.php');
                     <td>Username:</td>
                     <td>
                         <input type="text" name="username" placeholder="Enter Username" id="username">
+                        <div class="message"><small></small></div>
                     </td>
-                    <small></small>
                 </tr>
 
                 <tr>
                     <td>First Name:</td>
                     <td>
                         <input type="text" name="firstname" id="firstname" placeholder="Enter First Name">
+                        <div class="message"><small></small></div>
                     </td>
-                    <small></small>
                 </tr>
 
                 <tr>
                     <td>Last Name:</td>
                     <td>
                         <input type="text" name="lastname" id="lastname" placeholder="Enter Last Name">
+                        <div class="message"><small></small></div>
                     </td>
-                    <small></small>
                 </tr>
 
                 <tr>
                     <td>Email: </td>
                     <td>
                         <input type="text" name="email" id="email" placeholder="Enter Email">
+                        <div class="message"><small>
+                            <?php
+                            if(isset($_GET['error'])){
+                                if($_GET['error'] == 'invalidemail'){
+                                    echo "Email is invalid";
+                                }
+                            }
+                            ?>
+                        </small></div>
                     </td>
-                    <small></small>
                 </tr>
 
                 <tr>
                     <td>Password: </td>
                     <td>
                         <input type="password" name="password" id="password" placeholder="Enter Password">
+                        <div class="message"><small></small></div>
                     </td>
-                    <small></small>
                 </tr>
 
                 <tr>
                     <td>Phone: </td>
                     <td>
                         <input type="text" name="phone" id="phone" placeholder="Enter Email">
+                        <div class="message"><small></small></div>
                     </td>
-                    <small></small>
                 </tr>
 
                 <tr>
@@ -112,6 +120,23 @@ if (isset($_POST['submit'])) {
     $password = mysqli_real_escape_string($conn, sha1($_POST['password']));
     $phone = mysqli_real_escape_string($conn, $_POST['phone']);
     $admin = mysqli_real_escape_string($conn, $_POST['admin']);
+
+    /**Email Validation */
+
+    function invalidEmail($email) {
+        $result = true;
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $result = true;
+        } else {
+            $result = false;
+        }
+        return $result;
+    }
+
+    if (invalidEmail($email) !== false) {
+        header("Location:".HOMEURL.'admin/add-admin.php?error=invalidemail');
+        exit();
+    }
 
     //query to save data to our database
     $sql = "INSERT INTO user (username, first_name, last_name, email, passwordHash, phone, isAdmin) 

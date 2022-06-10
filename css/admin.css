@@ -36,6 +36,13 @@ table tr td {
 .tbl-30 {
     width: 30%;
 }
+.tbl-order td, th {
+    text-align: left;
+    padding: 6px; 
+}
+.tbl-order td {
+    border-right: 0.5px solid;
+}
 
 .btn-primary {
     background-color: #560BAD;

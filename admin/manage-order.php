@@ -7,7 +7,19 @@ include('./partials/menu.php');
         <h1>Manage Order</h1>
 
 
-        <br /> <br /> <br />
+        <br /> <br />
+
+        <?php
+        if(isset($_GET['error'])){
+            if($_GET['error'] == 'updatesuccessful'){
+                echo "<p class='success'> Order updated successful </p>";
+            } elseif($_GET['error'] == 'updateunseccessful'){
+                echo "<p class='error'> Order update was not successful! </p>";
+            }
+        }
+        ?>
+        <br /> <br />
+
         <table class="tbl-full tbl-order">
             <tr>
                 <th>Username</th>
@@ -24,12 +36,13 @@ include('./partials/menu.php');
             </tr>
 
             <?php
-            $data = "SELECT username, email, phone, name, amount, quantity, total_amount, order_status, order_date, street, town FROM customer INNER JOIN orders ON customer.customer_id = orders.customer_id INNER JOIN Menu ON Menu.item_id = orders.menu_id ORDER BY order_date DESC;";
+            $data = "SELECT order_id, username, email, phone, name, amount, quantity, total_amount, order_status, order_date, street, town FROM customer INNER JOIN orders ON customer.customer_id = orders.customer_id INNER JOIN Menu ON Menu.item_id = orders.menu_id ORDER BY order_date DESC;";
             $res = mysqli_query($conn, $data);
 
             $count = mysqli_num_rows($res);
             if ($count > 0) {
                 while ($row = mysqli_fetch_assoc($res)) {
+                    $order_id = $row['order_id'];
                     $username = $row['username'];
                     $email = $row['email'];
                     $phone = $row['phone'];
@@ -50,12 +63,22 @@ include('./partials/menu.php');
                         <td><?php echo $amount; ?></td>
                         <td><?php echo $quantity; ?></td>
                         <td><?php echo $total; ?></td>
-                        <td><?php echo $status; ?></td>
+                        <td>
+                            <?php
+                            if($status == 'pending'){
+                                echo "<label style='color:#F48C06;'> $status; </label>";
+                            } elseif($status == 'dispatched'){
+                                echo "<label style='color:#55A630;'> $status; </label>";
+                            } elseif($status == 'cancelled'){
+                                echo "<label style='color:#D00000;'> $status; </label>";
+                            }
+                            ?>
+                        </td>
                         <td><?php echo $order_date; ?></td>
                         <td><?php echo $address; ?></td>
                         <td><?php echo $town; ?></td>
                         <td style="min-width: 100px;">
-                            <a href="#" class="btn-secondary">Update Order</a>
+                            <a href="<?php echo HOMEURL; ?>admin/update-order.php?order_id=<?php echo $order_id; ?>" class="btn-secondary">Update Order</a>
                         </td>
                     </tr>
 

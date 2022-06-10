@@ -21,7 +21,7 @@ if(!isset($customer_id)){
     <link rel="stylesheet" href="./resources/icons/font-awesome-4.7.0/css/font-awesome.min.css">
 
     <link rel="shortcut icon" href="./resources/icons/codechef.svg" type="image/x-icon">
-    <script src="./javascript/menu.js" defer></script>
+    <!--<script src="./javascript/menu.js" defer></script>-->
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/menu.css">
     <title>Search Results</title>
@@ -115,7 +115,7 @@ if(!isset($customer_id)){
                                     <h5 class="price"><?php echo "KES " . $price; ?></h5>
                                 </div>
                                 <p><?php echo $description; ?></p>
-                                <button class="add-to-cart">Add To Cart</button>
+                                <a href="<?php echo HOMEURL ?>order.php?food_id=<?php echo $id; ?>" class="add-to-cart">Add To Cart</a>
                             </div>
                         </div>
                 <?php

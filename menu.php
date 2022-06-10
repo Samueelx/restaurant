@@ -20,7 +20,7 @@ if(!isset($customer_id)){
     <link rel="stylesheet" href="./resources/icons/font-awesome-4.7.0/css/font-awesome.min.css">
 
     <link rel="shortcut icon" href="./resources/icons/codechef.svg" type="image/x-icon">
-    <script src="./javascript/menu.js" defer></script>
+    <!--<script src="./javascript/menu.js" defer></script>-->
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/menu.css">
     <title>Menu</title>
@@ -90,6 +90,13 @@ if(!isset($customer_id)){
                         echo $_SESSION['empty'];
                         unset($_SESSION['empty']);
                     }
+                    if(isset($_GET['error'])){
+                        if($_GET['error'] == 'ordersuccessful'){
+                            echo "<p class='success'> Your order was successful! Thank you for dining with us. </p>";
+                        } elseif($_GET['error'] == 'ordernotsuccessful'){
+                            echo "<p class='error'> Something went wrong. Order was unsuccessful, please try again later. </p>";
+                        }
+                    }
                     ?>
                 </div>
                 <div class="results-container">
@@ -136,7 +143,8 @@ if(!isset($customer_id)){
                                     <h5 class="price"><?php echo "KES " . $price; ?></h5>
                                 </div>
                                 <p><?php echo $description; ?></p>
-                                <button class="add-to-cart">Add To Cart</button>
+                                <a href="<?php echo HOMEURL ?>order.php?food_id=<?php echo $id; ?>" class="add-to-cart">Add To Cart</a>
+                                <!-- <button class="add-to-cart">Add To Cart</button> -->
                             </div>
                         </div>
                 <?php
@@ -240,7 +248,8 @@ if(!isset($customer_id)){
                                     <h5 class="price"><?php echo "KES " . $price; ?></h5>
                                 </div>
                                 <p><?php echo $description; ?></p>
-                                <button class="add-to-cart">Add To Cart</button>
+                                <a href="<?php echo HOMEURL ?>order.php?food_id=<?php echo $id; ?>" class="add-to-cart">Add To Cart</a>
+                                <!--<button class="add-to-cart">Add To Cart</button> -->
                             </div>
                         </div>
 
@@ -349,7 +358,8 @@ if(!isset($customer_id)){
                                     <h5 class="price"><?php echo "KES " . $price; ?></h5>
                                 </div>
                                 <p><?php echo $description; ?></p>
-                                <button class="add-to-cart">Add To Cart</button>
+                                <a href="<?php echo HOMEURL ?>order.php?food_id=<?php echo $id; ?>" class="add-to-cart">Add To Cart</a>
+                                <!--<button class="add-to-cart">Add To Cart</button> -->
                             </div>
                         </div>
                 <?php

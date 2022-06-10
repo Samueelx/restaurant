@@ -67,7 +67,7 @@ main {
     font-weight: 400;
     align-self: stretch;
 }
-.details>button {
+.details>a {
     background-color: #6A040F;
     border: none;
     color: #ffffff;
@@ -76,8 +76,9 @@ main {
     font-weight: 600;
     border-radius: 5px;
     width: 180px;
+    text-decoration: none;
 }
-.details>button:hover {
+.details>a:hover {
     cursor: pointer;
 }
 

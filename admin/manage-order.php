@@ -60,9 +60,9 @@ include('./partials/menu.php');
                         <td><?php echo $username; ?></td>
                         <td><?php echo $email; ?></td>
                         <td><?php echo $name; ?></td>
-                        <td><?php echo $amount; ?></td>
+                        <td>KES <?php echo $amount; ?></td>
                         <td><?php echo $quantity; ?></td>
-                        <td><?php echo $total; ?></td>
+                        <td>KES <?php echo $total; ?></td>
                         <td>
                             <?php
                             if($status == 'pending'){

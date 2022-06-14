@@ -1,5 +1,10 @@
 <?php
 include('./partials/menu.php');
+
+if($_SESSION['isAdmin'] != 1){
+    header("Location:".HOMEURL.'admin/index.php?error=unauthorizedaccess');
+}
+$user_id = $_SESSION['user_id'];
 ?>
 
 <div class="main-content">
@@ -60,7 +65,7 @@ include('./partials/menu.php');
             $id = mysqli_real_escape_string($conn, $_POST['order_id']);
             $status = mysqli_real_escape_string($conn, $_POST['status']);
 
-            $query = "UPDATE orders SET order_status = '$status' WHERE order_id = $id;";
+            $query = "UPDATE orders SET order_status = '$status', processed_by = $user_id, time_processed = NOW() WHERE order_id = $id;";
             $response = mysqli_query($conn, $query);
 
             if($response == true){

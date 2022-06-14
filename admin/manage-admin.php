@@ -1,5 +1,9 @@
 <?php
 include('./partials/menu.php');
+
+if($_SESSION['isAdmin'] != 1){
+    header("Location:".HOMEURL.'admin/index.php?error=unauthorizedaccess');
+}
 ?>
 
 <!--Main Content starts Here-->
@@ -56,6 +60,7 @@ include('./partials/menu.php');
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Email</th>
+                <th>Role</th>
                 <th>Admin</th>
                 <th>Actions</th>
             </tr>
@@ -74,6 +79,7 @@ include('./partials/menu.php');
                         $firstname = $rows['first_name'];
                         $lastname = $rows['last_name'];
                         $email = $rows['email'];
+                        $role = $rows['role'];
                         $admin = $rows['isAdmin'];
 
                         if($admin == 0){
@@ -90,6 +96,7 @@ include('./partials/menu.php');
                             <td><?php echo $firstname; ?></td>
                             <td><?php echo $lastname; ?></td>
                             <td> <?php echo $email; ?> </td>
+                            <td><?php echo $role; ?></td>
                             <td> <?php echo $admin; ?> </td>
                             <td>
                                 <a href="<?php echo HOMEURL; ?>admin/update-password.php?id=<?php echo $id; ?>" class="btn-primary">Change Password</a>
@@ -104,37 +111,7 @@ include('./partials/menu.php');
                 }
             }
             ?>
-            <!--
-            <tr>
-                <td>fancynancy</td>
-                <td>Fancy</td>
-                <td>Nancy</td>
-                <td>
-                    <a href="#" class="btn-secondary">Update Admin</a>
-                    <a href="#" class="btn-danger">Delete Admin</a>
-                </td>
-            </tr>
-
-            <tr>
-                <td>fancynancy</td>
-                <td>Fancy</td>
-                <td>Nancy</td>
-                <td>
-                    <a href="#" class="btn-secondary">Update Admin</a>
-                    <a href="#" class="btn-danger">Delete Admin</a>
-                </td>
-            </tr>
-
-            <tr>
-                <td>fancynancy</td>
-                <td>Fancy</td>
-                <td>Nancy</td>
-                <td>
-                    <a href="#" class="btn-secondary">Update Admin</a>
-                    <a href="#" class="btn-danger">Delete Admin</a>
-                </td>
-            </tr>
-        -->
+            
         </table>
 
     </div>

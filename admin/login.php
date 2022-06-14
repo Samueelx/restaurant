@@ -59,8 +59,15 @@ if (isset($_POST['submit'])) {
     /**Check whether user exists: */
     $count = mysqli_num_rows($res);
     if($count == 1){
+        $row = mysqli_fetch_assoc($res);
+        $user_id = $row['user_id'];
+        $isAdmin = $row['isAdmin'];
+
         $_SESSION['login'] = "<div class='success'> Login Successfull! </div>";
         $_SESSION['user'] = $username; //---> This session variable will be unset during logout => call to session_destroy()
+        $_SESSION['user_id'] = $user_id;
+        $_SESSION['isAdmin'] = $isAdmin;
+        
         header("Location:".HOMEURL.'admin/');
     } else {
         $_SESSION['login'] = "<div class='error'> Login attempt failed! Username and Password do not match. </div>";

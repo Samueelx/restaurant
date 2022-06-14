@@ -1,5 +1,9 @@
 <?php
 include('./partials/menu.php');
+
+if($_SESSION['isAdmin'] != 1){
+    header("Location:".HOMEURL.'admin/index.php?error=unauthorizedaccess');
+}
 ?>
 
 <div class="main-content">
@@ -75,6 +79,18 @@ include('./partials/menu.php');
                 </tr>
 
                 <tr>
+                    <td>Role: </td>
+                    <td>
+                        <select name="role" id="">
+                            <option value="1">Manager</option>
+                            <option value="2">Admin</option>
+                            <option value="3">Delivery</option>
+                            <option value="4" selected>Attendant</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
                     <td>Admin?</td>
                     <td>
                         <div class="radio">
@@ -119,6 +135,7 @@ if (isset($_POST['submit'])) {
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $password = mysqli_real_escape_string($conn, sha1($_POST['password']));
     $phone = mysqli_real_escape_string($conn, $_POST['phone']);
+    $role = mysqli_real_escape_string($conn, $_POST['role']);
     $admin = mysqli_real_escape_string($conn, $_POST['admin']);
 
     /**Email Validation */
@@ -139,8 +156,8 @@ if (isset($_POST['submit'])) {
     }
 
     //query to save data to our database
-    $sql = "INSERT INTO user (username, first_name, last_name, email, passwordHash, phone, isAdmin) 
-    values ('$username', '$firstname', '$lastname', '$email', '$password', '$phone', '$admin');";
+    $sql = "INSERT INTO user (username, first_name, last_name, email, passwordHash, phone, role, isAdmin) 
+    values ('$username', '$firstname', '$lastname', '$email', '$password', '$phone', $role, '$admin');";
     $res = mysqli_query($conn, $sql) ? true : die(mysqli_error($conn));
     
     /**

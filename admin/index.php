@@ -13,6 +13,12 @@ include('./partials/menu.php');
             echo $_SESSION['login'];
             unset($_SESSION['login']);
         }
+
+        if(isset($_GET['error'])){
+            if($_GET['error'] == 'unauthorizedaccess'){
+                echo "<p class='error'> You don't have authorization to visit that page! </p>";
+            }
+        }
         ?>
         <br>
 
@@ -51,13 +57,52 @@ include('./partials/menu.php');
 
         <div class="col-4">
             <?php
+            $customers = "SELECT COUNT(*) FROM customer;";
+            $res = mysqli_query($conn, $customers);
+            $num_of_customers = mysqli_fetch_assoc($res);
+            ?>
+            <h1><?php echo $num_of_customers['COUNT(*)']; ?></h1>
+            <br>
+            <p>Registered Customers</p>
+        </div>
+
+        <div class="col-4">
+            <?php
             $total = "SELECT SUM(total_amount) AS 'total' FROM orders WHERE order_status = 'dispatched';";
             $res = mysqli_query($conn, $total);
             $total_revenue = mysqli_fetch_assoc($res);
             ?>
             <h1><?php echo "KES ". $total_revenue['total']; ?></h1>
             <br>
-            <p>Revenue Generated</p>
+            <a href="#">Revenue Generated</a>
+        </div>
+
+        <div class="col-4">
+            <?php
+            $processed = "SELECT COUNT(*) FROM orders WHERE order_status != 'pending';";
+            $res = mysqli_query($conn, $processed);
+            $processed_orders = mysqli_fetch_assoc($res);
+            ?>
+            <h1><?php echo $processed_orders['COUNT(*)']; ?></h1>
+            <br>
+            <a href="<?php echo HOMEURL ?>admin/processed-orders.php">Processed Orders</a>
+        </div>
+
+        <div class="col-4">
+            <h1>?</h1>
+            <br>
+            <a href="#">Orders per Customer</a>
+        </div>
+
+        <div class="col-4">
+            <h1>?</h1>
+            <br>
+            <a href="#">Orders and Food Items</a>
+        </div>
+
+        <div class="col-4">
+            <br>
+            <a href="<?php echo HOMEURL; ?>admin/customer-expense.php">Cutomer Expenditure</a>
         </div>
 
         <div class="clearfix"></div>

@@ -187,3 +187,33 @@ footer #heading{
 .socials i {
     margin: 0.313rem;
 }
+
+/**Styling the search bar at customers page*/
+.form-container {
+    width: 32rem;
+    padding-top: 1rem;
+    display: flex;
+    justify-content:flex-start;
+}
+.form input[type=text]{
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 18px;
+}
+
+.form input[type=submit], .form button{
+    padding: 6px;
+    background-color: #1B4332;
+    font-size: 18px;
+    border: none;
+    border-radius: 3px;
+    color: #B7E4C7;
+    margin-right: 6px;
+}
+
+.form input[type=submit]:hover {
+    background-color: #03071E;
+    cursor: pointer;
+}

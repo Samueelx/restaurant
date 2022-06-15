@@ -10,6 +10,14 @@ if($_SESSION['isAdmin'] != 1){
     <div class="wrapper">
         <h1>Registered Customers</h1>
 
+        <!--Customer Search-->
+        <div class="form-container">
+            <form action="<?php echo HOMEURL?>admin/search-customer.php" method="POST" class="form">
+                <input type="text" name="user_search" id="search" class="input" placeholder="Search...">
+                <input type="submit" value="search" name="submit" id="submit">
+            </form>
+        </div>
+
         <br>
 
         <table class="tbl-full">

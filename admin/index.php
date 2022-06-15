@@ -63,7 +63,7 @@ include('./partials/menu.php');
             ?>
             <h1><?php echo $num_of_customers['COUNT(*)']; ?></h1>
             <br>
-            <p>Registered Customers</p>
+            <a href="<?php echo HOMEURL ?>admin/registered-customers.php">Registered Customers</a>
         </div>
 
         <div class="col-4">
@@ -102,7 +102,7 @@ include('./partials/menu.php');
 
         <div class="col-4">
             <br>
-            <a href="<?php echo HOMEURL; ?>admin/customer-expense.php">Cutomer Expenditure</a>
+            <a href="<?php echo HOMEURL; ?>admin/customer-expense.php">Customer Expenditure</a>
         </div>
 
         <div class="clearfix"></div>

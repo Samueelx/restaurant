@@ -141,6 +141,7 @@ input[type = submit]{
 .main-content {
     background-color: aliceblue;
     padding: 3% 0;
+    min-height: 100vh;
 }
 .col-4 {
     width: 18%;

@@ -89,9 +89,14 @@ include('./partials/menu.php');
         </div>
 
         <div class="col-4">
-            <h1>?</h1>
+            <?php
+            $set = "SELECT username, first_name, last_name, email, COUNT(username) AS frequency  FROM customer INNER JOIN orders ON customer.customer_id = orders.customer_id WHERE order_status = 'dispatched'  GROUP BY customer.username ORDER BY frequency DESC;";
+            $res = mysqli_query($conn, $set);
+            $rows = mysqli_num_rows($res);
+            ?>
+            <h1><?php echo $rows; ?></h1>
             <br>
-            <a href="#">Orders per Customer</a>
+            <a href="<?php echo HOMEURL; ?>admin/orders-per-customer.php">Orders per Customer</a>
         </div>
 
         <div class="col-4">

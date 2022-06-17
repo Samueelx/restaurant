@@ -120,6 +120,11 @@ include('./partials/menu.php');
             <a href="<?php echo HOMEURL; ?>admin/frequent-orders.php">Frequently Ordered Foods</a>
         </div>
 
+        <div class="col-4">
+            <br>
+            <a href="<?php echo HOMEURL; ?>admin/orders-per-user.php">Orders processed per user</a>
+        </div>
+
         <div class="clearfix"></div>
     </div>
 </div>

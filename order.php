@@ -148,7 +148,16 @@ if (!isset($customer_id)) {
 
                         <div class="order-label">Town</div>
                         <select name="town" id="" class="input-responsive">
-                            <option value="Nairobi">Nairobi</option>
+                            <option value="Nairobi CBD">Nairobi CBD</option>
+                            <option value="kahawa west">kahawa west</option>
+                            <option value="kilimani">kilimani</option>
+                            <option value="woodley estate">woodley estate</option>
+                            <option value="membley estate">membley estate</option>
+                            <option value="langata">langata</option>
+                            <option value="umoja">umoja</option>
+                            <option value="wendani">wendani</option>
+                            <option value="kasarani">kasarani</option>
+                            <option value="karen">karen</option>
                         </select>
 
                         <br>

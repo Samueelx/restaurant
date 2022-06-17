@@ -95,14 +95,24 @@ include('./partials/menu.php');
         </div>
 
         <div class="col-4">
-            <h1>?</h1>
+            <?php
+            $foods = "SELECT name FROM Menu INNER JOIN orders ON orders.menu_id = Menu.item_id  WHERE order_status = 'dispatched' GROUP BY name";
+            $res = mysqli_query($conn, $foods);
+            $rows = mysqli_num_rows($res);
+            ?>
+            <h1><?php echo $rows; ?></h1>
             <br>
-            <a href="#">Orders and Food Items</a>
+            <a href="<?php echo HOMEURL; ?>admin/food-ranking.php">Food ranking by Revenue</a>
         </div>
 
         <div class="col-4">
             <br>
             <a href="<?php echo HOMEURL; ?>admin/customer-expense.php">Customer Expenditure</a>
+        </div>
+
+        <div class="col-4">
+            <br>
+            <a href="<?php echo HOMEURL; ?>admin/frequent-orders.php">Frequently Ordered Foods</a>
         </div>
 
         <div class="clearfix"></div>

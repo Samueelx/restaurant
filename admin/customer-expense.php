@@ -24,7 +24,7 @@ if($_SESSION['isAdmin'] != 1){
 
             <?php
 
-            $query = "SELECT username, first_name, last_name, email, phone, SUM(total_amount) AS expenditure FROM customer  INNER JOIN orders ON customer.customer_id = orders.customer_id WHERE orders.order_status = 'dispatched'  GROUP BY customer.username;";
+            $query = "SELECT username, first_name, last_name, email, phone, SUM(total_amount) AS expenditure FROM customer  INNER JOIN orders ON customer.customer_id = orders.customer_id WHERE orders.order_status = 'dispatched'  GROUP BY customer.username ORDER BY expenditure DESC;";
             $res = mysqli_query($conn, $query);
             if($res == true){
                 $count = mysqli_num_rows($res);
@@ -45,7 +45,7 @@ if($_SESSION['isAdmin'] != 1){
                             <td><?php echo $lastname; ?></td>
                             <td><?php echo $email; ?></td>
                             <td><?php echo "0".$phone; ?></td>
-                            <td><?php echo $expenditure; ?></td>
+                            <td><?php echo "KES ".$expenditure; ?></td>
                         </tr>
                         <?php
                     }

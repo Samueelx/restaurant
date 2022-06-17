@@ -1,9 +1,6 @@
 <?php
 include('./partials/menu.php');
 
-if($_SESSION['isAdmin'] != 1){
-    header("Location:".HOMEURL.'admin/index.php?error=unauthorizedaccess');
-}
 $user_id = $_SESSION['user_id'];
 ?>
 

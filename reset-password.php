@@ -34,24 +34,15 @@
     <main>
         <div class="positioning">
             <div class="center">
-                <h1>Login</h1>
-                <form action="./includes/login.inc.php" method="POST">
+                <h1>Reset Password</h1>
+                <form action="./includes/reset-request.inc.php" method="POST">
                     <div class="txt_field error">
-                        <input type="text" name="username" id="username">
+                        <input type="text" name="email" id="email">
                         <span></span>
-                        <label for="username">Username or Email</label>
+                        <label for="email">Enter your email address</label>
                         <small></small>
                     </div>
-                    <div class="txt_field success">
-                        <input type="password" name="password" id="password">
-                        <span></span>
-                        <label for="password">Password</label>
-                        <small></small>
-                    </div>
-                    <div class="pass">
-                        <a href="<?php echo HOMEURL; ?>reset-password.php">Forgot Password?</a>
-                    </div>
-                    <input type="submit" value="Login" id="signup" name="submit">
+                    <input type="submit" value="Reset password via email" id="signup" name="reset-request-submit">
                     <div class="signup_link">
                         Not a member? <a href="./signup.php">Sign Up</a>
                     </div>
@@ -60,13 +51,23 @@
                 <?php
                 if (isset($_GET['error'])) {
                     if ($_GET['error'] == "emptyinput") {
-                        echo "<p> Fill in all the fields! </p>";
+                        echo "<p class='error'> Fill in the required fields! </p>";
                     } elseif ($_GET['error'] == "wronglogin") {
                         echo "<p> Incorrect login information! </p>";
                     } elseif ($_GET['error'] == "stmtfailed") {
                         echo "<p> Something went wrong! Please try again. </p>";
                     } elseif ($_GET['error'] == "loggedout"){
                         echo "<p> Please login to access the page. </p>";
+                    } elseif ($_GET['error'] == 'insertstmtfailed'){
+                        echo "<p> Insert statement failed! </p>";
+                    } elseif ($_GET['error'] == 'invalidemail'){
+                        echo "<p class='error'> Email format is wrong! </p>";
+                    }
+                }
+
+                if (isset($_GET['reset'])){
+                    if($_GET['reset'] == 'success'){
+                        echo "<p class='success'> Check your email. </p>";
                     }
                 }
                 ?>

@@ -104,7 +104,13 @@ include('./partials-front/header.php');
 -->
                 </div>
 
-                <button class="menu-button" id="menu-button">Menu</button>
+                <button onclick="myFunc()" class="menu-button" id="menu-button">Menu</button>
+
+                <script>
+                    function myFunc() {
+                        window.location.href = 'menu.php';
+                    }
+                </script>
 
             </div>
         </div>

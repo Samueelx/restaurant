@@ -433,6 +433,8 @@ if(!isset($customer_id)){
             </div>
         </section>
 
+        <!-- Cart starts here:
+
         <section class="container content-section">
             <h2 class="section-header">CART</h2>
             <div class="cart-row">
@@ -450,6 +452,7 @@ if(!isset($customer_id)){
             </div>
             <button class="btn btn-primary btn-purchase">PURCHASE</button>
         </section>
+            -->
     </main>
 
     <?php include('./partials-front/footer.php'); ?>

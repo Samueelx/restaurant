@@ -64,44 +64,6 @@ include('./partials-front/header.php');
                     }
                     ?>
 
-                    <!--
-                        <div class="menu-item">
-                            <img src="./resources/images/beef-steak.jpg" alt="Beef Steak" class="menu-item-image">
-                            <div class="menu-item-text">
-                                <h3 class="menu-item-heading">
-                                    <span class="menu-item-name">Beef Steak</span>
-                                    <span class="menu-item-price">KES 350</span>
-                                </h3>
-                                <p class="menu-item-description">
-                                    Enjoy these grilled beef steaks sprinkled with salt and pepper that’s ready in just 20 minutes – perfect for a dinner.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <img src="./resources/images/grilled-pork.jpg" alt="Grilled Pork" class="menu-item-image">
-                            <div class="menu-item-text">
-                                <h3 class="menu-item-heading">
-                                    <span class="menu-item-name">Grilled Pork</span>
-                                    <span class="menu-item-price">KES 450</span>
-                                </h3>
-                                <p class="menu-item-description">
-                                    These quick and easy chops are marinated in a simple mixture of soy sauce, mustard, and brown sugar.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <img src="./resources/images/sushi.jpg" alt="Sushi" class="menu-item-image">
-                            <div class="menu-item-text">
-                                <h3 class="menu-item-heading">
-                                    <span class="menu-item-name">Sushi</span>
-                                    <span class="menu-item-price">KES 900</span>
-                                </h3>
-                                <p class="menu-item-description">
-                                    Sushi, a staple rice dish of Japanese cuisine, consisting of cooked rice flavoured with vinegar and a variety of vegetable, egg, or raw seafood garnishes and served cold.
-                                </p>
-                            </div>
-                        </div>
--->
                 </div>
 
                 <button onclick="myFunc()" class="menu-button" id="menu-button">Menu</button>

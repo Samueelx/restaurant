@@ -69,6 +69,12 @@
                         echo "<p> Please login to access the page. </p>";
                     }
                 }
+
+                if(isset($_GET['newpwd'])){
+                    if($_GET['newpwd'] == 'passwordupdated'){
+                        echo "<p> Your password has been reset! </p>";
+                    }
+                }
                 ?>
             </div>
         </div>

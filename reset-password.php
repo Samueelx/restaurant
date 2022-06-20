@@ -62,6 +62,12 @@
                         echo "<p> Insert statement failed! </p>";
                     } elseif ($_GET['error'] == 'invalidemail'){
                         echo "<p class='error'> Email format is wrong! </p>";
+                    } elseif ($_GET['error'] == 'emptytokens') {
+                        echo "<p> Could not validate your request! </p>";
+                    } elseif ($_GET['error'] == "passwordsdontmatch") {
+                        echo "<p> Passwords don't match! </p>";
+                    } elseif ($_GET['error'] == 'resubmit'){
+                        echo "<p> Your request is probably expired. You need to re-submit your reset request </p>";
                     }
                 }
 
